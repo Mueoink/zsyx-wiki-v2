@@ -2,9 +2,9 @@
 export const quickNavItems = [
   {
     id: "nav-1",
-    title: "信仰阵营测试",
+    title: "信仰测试",
     icon: "ph:scales-duotone",
-    link: "/tools/belief-test",
+    link: "/community/test",
     theme: "amber", // 颜色：amber, indigo, emerald, purple 等
     badge: {
       text: "HOT",

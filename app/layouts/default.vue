@@ -122,8 +122,11 @@ import { computed, ref } from 'vue'
 const searchModal = ref(null)
 
 const { data: allContents } = await useAsyncData('navigation-data', () =>
-    queryCollection('content').all()
+    queryCollection('content')
+        .select('title', 'path', 'navType', 'category', 'hideInMenu')
+        .all()
 )
+
 
 const wikiCategories = computed(() => {
     if (!allContents.value) return []
