@@ -1,9 +1,7 @@
 <!-- app/components/ContributorBoard.vue -->
 <template>
-
     <div
         class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-xl overflow-hidden shadow-sm transition-colors duration-300">
-
 
         <NuxtLink to="/contributors"
             class="bg-gradient-to-r from-amber-50 to-white dark:from-amber-900/40 dark:to-[#22222b] border-b border-amber-100 dark:border-amber-900/30 px-4 py-2.5 flex items-center justify-between group cursor-pointer hover:from-amber-100 dark:hover:from-amber-900/60 transition-colors">
@@ -18,25 +16,22 @@
                 class="text-gray-400 dark:text-gray-500 text-xs group-hover:text-amber-500 group-hover:translate-x-1 transition-all" />
         </NuxtLink>
 
-        <div class="p-3 flex flex-col gap-2.5" v-if="displayMembers.length > 0">
+        <div class="p-3 flex flex-col gap-2.5" v-if="displayMembers && displayMembers.length > 0">
 
             <div v-for="(member, index) in displayMembers" :key="member.name"
                 class="flex items-center gap-3 bg-slate-50 dark:bg-[#22222b] border p-2 rounded-lg relative overflow-hidden transition-colors hover:bg-slate-100 dark:hover:bg-[#2a2a35]"
                 :class="getBorderClass(member.role)">
 
-   
                 <div v-if="index < 2"
                     class="absolute right-0 top-0 text-5xl -translate-y-1 translate-x-1 font-serif italic"
                     :class="index === 0 ? 'text-amber-500/10' : 'text-red-500/10'">
                     {{ index + 1 }}
                 </div>
 
-
                 <div class="w-10 h-10 bg-slate-200 dark:bg-gray-800 shrink-0 rounded-full shadow-inner flex items-center justify-center overflow-hidden border-2"
                     :class="getAvatarBorder(member.role)">
                     <img :src="member.avatar" alt="avatar" class="w-full h-full object-cover" />
                 </div>
-
 
                 <div class="z-10 flex-1">
                     <div class="text-sm font-bold flex items-center gap-1.5 drop-shadow-sm"
@@ -60,18 +55,25 @@
             </div>
 
         </div>
+
+        <div v-else class="p-4 text-xs text-center text-gray-500">
+            统计数据加载中...
+        </div>
     </div>
 </template>
 
 <script setup>
+import { computed } from 'vue' // 引入 computed
 import { useAsyncData } from '#imports'
+import { teamMembers } from '~/utils/team'
 
 const { data: allDocs } = await useAsyncData('all-docs-for-stats', () => {
-    return queryCollection('content').all()
+    return queryCollection('content').select('authors').all()
 })
 
-const editCounts = {}
-if (allDocs.value) {
+const displayMembers = computed(() => {
+    if (!allDocs.value) return []
+    const editCounts = {}
     allDocs.value.forEach(doc => {
         if (doc.authors && Array.isArray(doc.authors)) {
             doc.authors.forEach(name => {
@@ -79,9 +81,7 @@ if (allDocs.value) {
             })
         }
     })
-}
 
-const buildDisplayList = () => {
     const creator = teamMembers.find(m => m.role === 'creator')
     const lead = teamMembers.find(m => m.role === 'lead')
 
@@ -99,9 +99,7 @@ const buildDisplayList = () => {
         .slice(0, 2)
 
     return [...fixedList, ...topContributors]
-}
-
-const displayMembers = buildDisplayList()
+})
 
 const getBorderClass = (role) => {
     if (role === 'creator') return 'border-amber-200 dark:border-amber-700/30'
@@ -114,7 +112,6 @@ const getAvatarBorder = (role) => {
     return 'border-blue-400 dark:border-blue-500'
 }
 const getNameColor = (role) => {
-
     if (role === 'creator') return 'text-amber-600 dark:text-amber-400'
     if (role === 'lead') return 'text-red-600 dark:text-red-400'
     return 'text-blue-600 dark:text-blue-400'
