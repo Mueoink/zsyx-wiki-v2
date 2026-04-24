@@ -5,6 +5,5 @@ module.exports = {
   theme: {
     extend: {},
   },
-  // 挂载排版神器插件！
   plugins: [require("@tailwindcss/typography")],
 };

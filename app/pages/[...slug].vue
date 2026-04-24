@@ -32,7 +32,7 @@
       <article
         class="relative bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 p-6 md:p-10 rounded-xl shadow-md dark:shadow-lg transition-colors duration-300">
 
-        <!-- ================= 2. 文章头部信息区 ================= -->
+      
         <div class="mb-8 border-b border-slate-200 dark:border-gray-700/50 pb-6 transition-colors">
 
           <div class="flex flex-wrap items-center gap-2 mb-4">
@@ -116,6 +116,7 @@
 <script setup>
 import { useRoute, useAsyncData, useSeoMeta } from '#imports'
 import { computed } from 'vue'
+import { teamMembers } from '~/utils/team'
 
 const route = useRoute()
 
