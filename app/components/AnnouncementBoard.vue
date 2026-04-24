@@ -37,7 +37,7 @@
 <script setup>
 import { useAsyncData } from '#imports'
 
-const { data: announcements } = await useAsyncData('home-announcements', () => {
+const { data: announcements } = await useAsyncData('home-announcements-ordered', () => {
     return queryCollection('content')
         .where('type', '=', 'announcement')
         .order('path', 'DESC')

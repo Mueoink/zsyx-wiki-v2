@@ -1,8 +1,7 @@
-<!-- app/components/UpdateLogBoard.vue -->
 <template>
     <div
         class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-xl overflow-hidden shadow-sm transition-colors duration-300">
-        
+
         <div class="bg-slate-50 dark:bg-[#22222b] border-b border-slate-200 dark:border-gray-700/50 px-4 py-2.5 flex items-center justify-between group cursor-pointer hover:bg-slate-100 dark:hover:bg-[#2a2a35] transition-colors"
             @click="goToAllLogs">
             <div class="flex items-center gap-2">
@@ -27,11 +26,20 @@
                         {{ log.version || 'v?' }}
                     </span>
 
+                    <!-- 迭代 -->
+                    <span v-if="log.updateType === 'iteration'"
+                        class="text-[10px]
+                        bg-red-50 text-red-600 border border-red-200 dark:bg-red-500/20 dark:text-red-400
+                        dark:border-red-500/30 px-1 py-0.5 rounded leading-none font-bold">
+                        迭代
+                    </span>
+
                     <!-- 大版本 -->
-                    <span v-if="log.updateType === 'major'"
-                        class="text-[10px] bg-red-50 text-red-600 border border-red-200 dark:bg-red-500/20 dark:text-red-400 dark:border-red-500/30 px-1 py-0.5 rounded leading-none font-bold">
+                    <span v-else-if="log.updateType === 'major'"
+                        class="text-[10px] bg-blue-50 text-blue-600 border border-blue-200 dark:bg-blue-500/20 dark:text-blue-400 dark:border-blue-500/30 px-1 py-0.5 rounded leading-none font-bold">
                         大版本
                     </span>
+
                     <!-- 常规 -->
                     <span v-else
                         class="text-[10px] bg-slate-100 text-slate-500 border border-slate-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-700 px-1 py-0.5 rounded leading-none">
@@ -77,7 +85,6 @@ const { data: logs } = await useAsyncData('home-changelogs', () => {
         .limit(5)
         .all()
 })
-
 
 const getColorClass = (color, element) => {
     const theme = color?.toLowerCase() || 'purple'

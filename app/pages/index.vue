@@ -59,7 +59,7 @@ import { useAsyncData } from '#imports'
 
 const { data: announcements } = await useAsyncData('home-announcements', () => {
     return queryCollection('content')
-        .where('type', '=', 'announcement') // 只抓取公告
+        .where('type', '=', 'announcement') 
         .all()
 })
 
