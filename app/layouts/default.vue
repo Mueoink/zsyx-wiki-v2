@@ -41,7 +41,7 @@
                         </div>
                         <div
                             class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-xl shadow-xl overflow-hidden flex flex-col relative z-10 py-1.5">
-                            <NuxtLink v-for="cat in wikiCategories" :key="cat" :to="`/category/${cat}`"
+                            <NuxtLink v-for="cat in wikiCategories" :key="cat" :to="`/category/${encodeURIComponent(cat)}`"
                                 class="px-4 py-2 text-sm text-slate-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-gray-800/50 hover:pl-5 transition-all flex items-center gap-2">
                                 <Icon name="ph:caret-right-bold" class="text-indigo-500 text-[10px]" />
                                 {{ cat }}
@@ -140,7 +140,7 @@
                             <Icon name="ph:books-duotone" class="text-sm" /> WIKI 枢纽
                         </div>
                         <div class="flex flex-col gap-1 pl-3 border-l-2 border-slate-100 dark:border-gray-800/80">
-                            <NuxtLink v-for="cat in wikiCategories" :key="cat" :to="`/category/${cat}`"
+                            <NuxtLink v-for="cat in wikiCategories" :key="cat" :to="`/category/${encodeURIComponent(cat)}`"
                                 class="py-2 px-3 text-sm text-slate-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg hover:bg-slate-50 dark:hover:bg-gray-800/50 transition">
                                 {{ cat }}
                             </NuxtLink>

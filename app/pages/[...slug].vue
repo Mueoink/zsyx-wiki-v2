@@ -16,7 +16,7 @@
           <span class="text-slate-600 dark:text-gray-400">社区项目</span>
         </template>
         <template v-else-if="doc.category">
-          <NuxtLink :to="`/category/${doc.category}`"
+          <NuxtLink :to="`/category/${encodeURIComponent(doc.category)}`"
             class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">
             {{ doc.category }}
           </NuxtLink>
