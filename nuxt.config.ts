@@ -9,23 +9,25 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
   ],
   colorMode: {
-    preference: "light", 
-    fallback: "light", 
-    classSuffix: "", 
+    preference: "light",
+    fallback: "light",
+    classSuffix: "",
   },
-nitro: {
-    preset: 'vercel' 
+  nitro: {
+    preset: "vercel",
+    prerender: {
+      failOnError: false,
+    },
   },
+
   devtools: { enabled: true },
   compatibilityDate: "2026-02-20",
   app: {
     head: {
       htmlAttrs: {
-        lang: "zh-CN", 
+        lang: "zh-CN",
       },
-      link: [
-        { rel: "icon", type: "image/png", href: "/logo.png" },
-      ],
+      link: [{ rel: "icon", type: "image/png", href: "/logo.png" }],
     },
   },
 });
