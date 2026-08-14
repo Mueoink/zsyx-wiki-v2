@@ -2,7 +2,7 @@
 <template>
     <div class="mt-8">
         <div
-            class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-xl p-4 md:p-6 mb-8 shadow-sm flex flex-col md:flex-row gap-6 justify-between items-center z-20 relative transition-colors duration-300">
+            class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-6 mb-6 md:mb-8 shadow-sm flex flex-col md:flex-row gap-4 md:gap-6 justify-between items-stretch md:items-center z-20 relative transition-colors duration-300 min-w-0">
             <div
                 class="flex items-center gap-2 bg-slate-100 dark:bg-[#15151a] p-1 rounded-lg border border-slate-200 dark:border-gray-800">
                 <button v-for="t in ['全部', '道具', '天赋']" :key="t" @click="filterType = t"
@@ -24,7 +24,7 @@
 
         </div>
 
-        <div v-if="filteredList.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 relative z-10">
+        <div v-if="filteredList.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 relative z-10 min-w-0">
             <ItemCard v-for="item in filteredList" :key="item.name" :item="item" />
         </div>
         <div v-else

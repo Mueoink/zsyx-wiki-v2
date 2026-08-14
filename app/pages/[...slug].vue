@@ -1,6 +1,6 @@
 <!-- app/pages/[...slug].vue -->
 <template>
-  <div class="max-w-[1000px] mx-auto px-4 py-10 xl:px-8">
+  <div class="max-w-[1000px] mx-auto px-4 py-6 md:py-10 xl:px-8">
 
     <div v-if="doc">
       <div v-if="doc.layoutType === 'hub'" class="-mx-4 md:-mx-10 xl:-mx-[200px]">
@@ -8,7 +8,7 @@
       </div>
       <div v-else>
  
-      <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-gray-500 mb-6 font-mono transition-colors">
+      <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-gray-500 mb-5 md:mb-6 font-mono transition-colors min-w-0">
         <NuxtLink to="/" class="hover:text-amber-600 dark:hover:text-amber-500 transition">真实宇宙</NuxtLink>
         <Icon name="ph:caret-right-bold" class="text-slate-400 dark:text-gray-600" />
 
@@ -30,10 +30,10 @@
       </div>
 
       <article
-        class="relative bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 p-6 md:p-10 rounded-xl shadow-md dark:shadow-lg transition-colors duration-300">
+        class="relative bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 p-4 sm:p-6 md:p-10 rounded-lg shadow-sm transition-colors duration-300 min-w-0">
 
       
-        <div class="mb-8 border-b border-slate-200 dark:border-gray-700/50 pb-6 transition-colors">
+        <div class="mb-6 md:mb-8 border-b border-slate-200 dark:border-gray-700/50 pb-5 md:pb-6 transition-colors">
 
           <div class="flex flex-wrap items-center gap-2 mb-4">
             <span v-if="doc.category"
@@ -53,7 +53,7 @@
           </div>
 
           <h1
-            class="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-gray-100 font-serif mb-4 drop-shadow-sm transition-colors">
+            class="text-2xl sm:text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-gray-100 font-serif mb-4 transition-colors break-words">
             {{ doc.title || '未命名卷宗' }}
           </h1>
 

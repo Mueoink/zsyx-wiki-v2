@@ -4,7 +4,7 @@
         class="my-8 bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-xl shadow-sm overflow-hidden transition-colors duration-300">
 
         <div
-            class="relative p-5 md:p-6 border-b border-slate-100 dark:border-gray-800/60 bg-slate-50/50 dark:bg-[#1a1a21]">
+            class="relative p-3 sm:p-5 md:p-6 border-b border-slate-100 dark:border-gray-800/60 bg-slate-50/50 dark:bg-[#1a1a21]">
             <Icon name="ph:folder-open-duotone"
                 class="absolute right-4 top-4 text-6xl opacity-[0.03] dark:opacity-[0.05] pointer-events-none" />
 
@@ -26,7 +26,7 @@
 
                 <!-- 标题 -->
                 <h3
-                    class="text-2xl font-black text-slate-800 dark:text-gray-100 font-serif tracking-wide flex items-center gap-2">
+                    class="text-xl sm:text-2xl font-black text-slate-800 dark:text-gray-100 font-serif tracking-wide flex items-start gap-2 break-words">
                     <Icon name="ph:bookmark-simple-fill" class="text-amber-500 text-lg" />
                     {{ title }}
                 </h3>
@@ -44,7 +44,7 @@
             </div>
         </div>
 
-        <div class="p-5 md:p-6 space-y-6">
+        <div class="p-3 sm:p-5 md:p-6 space-y-5 md:space-y-6">
 
             <div v-if="$slots.summary" class="space-y-2">
                 <div
@@ -52,7 +52,7 @@
                     <Icon name="ph:article-duotone" /> 事件概述
                 </div>
                 <div
-                    class="text-sm text-slate-700 dark:text-gray-300 leading-loose text-justify bg-slate-50 dark:bg-[#15151a] p-4 rounded-lg border border-slate-100 dark:border-gray-800/50">
+                    class="text-sm text-slate-700 dark:text-gray-300 leading-relaxed sm:leading-loose bg-slate-50 dark:bg-[#15151a] p-3 sm:p-4 rounded-lg border border-slate-100 dark:border-gray-800/50">
                     <slot name="summary" />
                 </div>
             </div>
@@ -75,7 +75,7 @@
         </div>
 
         <div
-            class="bg-slate-50 dark:bg-[#15151a]/50 border-t border-slate-100 dark:border-gray-800 p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            class="bg-slate-50 dark:bg-[#15151a]/50 border-t border-slate-100 dark:border-gray-800 p-3 sm:p-5 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 text-sm">
 
             <div v-if="teammates && teammates.length > 0">
                 <div

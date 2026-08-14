@@ -1,16 +1,13 @@
 <template>
     <div
-        class="min-h-screen bg-slate-50 dark:bg-[#15151a] text-slate-800 dark:text-gray-300 font-sans pb-12 selection:bg-amber-500/30 flex flex-col transition-colors duration-300">
+        class="min-h-screen bg-[#f7f6f3] dark:bg-[#15151a] text-slate-800 dark:text-gray-300 font-sans pb-12 selection:bg-amber-500/30 flex flex-col transition-colors duration-300">
 
         <div
-            class="fixed inset-0 z-0 pointer-events-none wiki-bg-pattern opacity-50 dark:opacity-100 transition-opacity duration-300">
-        </div>
-        <div
-            class="fixed inset-0 z-0 pointer-events-none wiki-bg-glow opacity-40 dark:opacity-100 transition-opacity duration-300">
+            class="fixed inset-0 z-0 pointer-events-none wiki-bg-pattern opacity-30 dark:opacity-60 transition-opacity duration-300">
         </div>
 
         <header
-            class="sticky top-0 z-50 h-14 bg-white/90 dark:bg-[#1a1a21]/90 backdrop-blur-md border-b border-slate-200 dark:border-gray-700/50 flex items-center px-4 xl:px-8 justify-between transition-colors duration-300">
+            class="sticky top-0 z-50 h-14 bg-[#fbfaf8] dark:bg-[#1a1a21] border-b border-slate-200 dark:border-gray-700/50 flex items-center px-4 xl:px-8 justify-between transition-colors duration-300">
 
             <NuxtLink to="/" class="flex items-center gap-2 sm:gap-3 min-w-0 group">
                 <div
@@ -117,7 +114,7 @@
 
         <Transition name="slide-right">
             <div v-if="isMobileMenuOpen"
-                class="fixed top-0 right-0 h-full w-64 sm:w-80 bg-white dark:bg-[#1a1a21] shadow-2xl z-[70] lg:hidden flex flex-col border-l border-slate-200 dark:border-gray-700/50">
+                class="fixed top-0 right-0 h-[100dvh] w-[min(20rem,calc(100vw-2rem))] bg-white dark:bg-[#1a1a21] shadow-2xl z-[70] lg:hidden flex flex-col border-l border-slate-200 dark:border-gray-700/50">
 
                 <div
                     class="h-14 flex items-center justify-between px-4 border-b border-slate-200 dark:border-gray-700/50 shrink-0 bg-slate-50 dark:bg-[#15151a]">
@@ -227,15 +224,46 @@ const communityProjects = computed(() => {
 <style>
 .wiki-bg-pattern {
     background-image:
-        linear-gradient(to right, rgba(120, 120, 120, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(120, 120, 120, 0.05) 1px, transparent 1px);
-    background-size: 48px 48px;
+        linear-gradient(to bottom, rgba(100, 116, 139, 0.07) 1px, transparent 1px);
+    background-size: 100% 64px;
 }
 
-.wiki-bg-glow {
-    background:
-        radial-gradient(circle at 50% 0%, rgba(49, 46, 129, 0.1) 0%, transparent 60%),
-        radial-gradient(circle at 80% 100%, rgba(120, 53, 15, 0.05) 0%, transparent 50%);
+html,
+body {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+img,
+video,
+canvas {
+    max-width: 100%;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+    touch-action: manipulation;
+}
+
+.wiki-prose {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.wiki-prose table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.wiki-prose pre {
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 ::-webkit-scrollbar {

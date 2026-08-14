@@ -1,6 +1,6 @@
 <!-- app/components/TemplateHub.vue -->
 <template>
-    <div class="max-w-[1400px] mx-auto px-4 py-8 xl:px-8 min-h-[80vh]">
+    <div class="max-w-[1400px] mx-auto px-4 py-6 md:py-8 xl:px-8 min-h-[80vh]">
 
         <div class="mb-10 text-center relative flex flex-col items-center">
             <Icon name="ph:hexagon-duotone"
@@ -12,7 +12,7 @@
             </div>
 
             <h1
-                class="text-4xl md:text-5xl font-black text-slate-800 dark:text-white font-serif mb-4 tracking-widest z-10 drop-shadow-md transition-colors">
+                class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-800 dark:text-white font-serif mb-4 tracking-wide sm:tracking-widest z-10 transition-colors break-words">
                 {{ doc.title }}
             </h1>
 
@@ -23,7 +23,7 @@
 
            
             <div v-if="authors && authors.length > 0"
-                class="flex flex-wrap justify-center items-center gap-4 text-sm text-slate-600 dark:text-gray-500 z-10 bg-white/80 dark:bg-[#1a1a21]/80 backdrop-blur-sm px-6 py-3 rounded-2xl border border-slate-200 dark:border-gray-700/50 shadow-sm transition-colors">
+                class="flex flex-wrap justify-center items-center gap-3 sm:gap-4 text-sm text-slate-600 dark:text-gray-500 z-10 bg-white/80 dark:bg-[#1a1a21]/80 px-4 sm:px-6 py-3 rounded-lg sm:rounded-xl border border-slate-200 dark:border-gray-700/50 shadow-sm transition-colors w-full sm:w-auto">
                 <div class="flex items-center gap-1.5">
                     <Icon name="ph:database-duotone" class="text-base text-slate-500 dark:text-gray-400" />
                     此大厅由以下贡献者合力构建

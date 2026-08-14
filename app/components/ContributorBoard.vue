@@ -19,7 +19,7 @@
         <div class="p-3 flex flex-col gap-2.5" v-if="displayMembers && displayMembers.length > 0">
 
             <div v-for="(member, index) in displayMembers" :key="member.name"
-                class="flex items-center gap-3 bg-slate-50 dark:bg-[#22222b] border p-2 rounded-lg relative overflow-hidden transition-colors hover:bg-slate-100 dark:hover:bg-[#2a2a35]"
+                class="flex items-center gap-3 bg-slate-50 dark:bg-[#22222b] border p-2 rounded-lg relative overflow-hidden transition-colors hover:bg-slate-100 dark:hover:bg-[#2a2a35] min-w-0"
                 :class="getBorderClass(member.role)">
 
                 <div v-if="index < 2"
@@ -33,8 +33,8 @@
                     <img :src="member.avatar" alt="avatar" class="w-full h-full object-cover" />
                 </div>
 
-                <div class="z-10 flex-1">
-                    <div class="text-sm font-bold flex items-center gap-1.5 drop-shadow-sm"
+                <div class="z-10 flex-1 min-w-0">
+                    <div class="text-sm font-bold flex items-center gap-1.5 drop-shadow-sm min-w-0 break-words"
                         :class="getNameColor(member.role)">
                         {{ member.name }}
                         <Icon v-if="member.role === 'creator'" name="ph:crown-fill" class="text-amber-500 text-xs" />

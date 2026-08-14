@@ -1,13 +1,13 @@
 <!-- app/components/QuickNavMatrix.vue -->
 <template>
-    <section class="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <section class="grid grid-cols-1 min-[360px]:grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3">
 
         <NuxtLink v-for="item in quickNavItems" :key="item.id" :to="item.link"
-            class="relative group bg-white dark:bg-[#1a1a21] border transition-colors p-4 flex flex-col items-center justify-center gap-3 rounded-xl shadow-sm hover:shadow-md dark:shadow-none overflow-hidden duration-300"
+            class="relative group bg-white dark:bg-[#1a1a21] border transition-colors p-3 sm:p-4 flex flex-row min-[360px]:flex-col items-center justify-center gap-2.5 sm:gap-3 rounded-lg overflow-hidden duration-200 min-w-0"
             :class="getCardBorderClass(item.theme, item.isImportant)">
 
 
-            <div v-if="item.isImportant" class="absolute left-0 top-0 bottom-0 w-1.5 transition-shadow duration-300"
+            <div v-if="item.isImportant" class="absolute left-0 top-0 bottom-0 w-1 transition-colors duration-200"
                 :class="getImportantGlowClass(item.theme)"></div>
 
             <span v-if="item.badge"
@@ -17,10 +17,10 @@
             </span>
 
             <Icon :name="item.icon"
-                class="text-4xl group-hover:-translate-y-1 transition-all duration-300 drop-shadow-sm dark:drop-shadow-lg"
+                class="text-3xl md:text-4xl transition-colors duration-200"
                 :class="getIconColorClass(item.theme, item.isImportant)" />
 
-            <h3 class="font-bold text-sm md:text-base tracking-widest transition-colors duration-300"
+            <h3 class="font-bold text-sm md:text-base tracking-wide transition-colors duration-200"
                 :class="getTextColorClass(item.theme, item.isImportant)">
                 {{ item.title }}
             </h3>
@@ -53,8 +53,8 @@ const getCardBorderClass = (theme, isImportant) => {
 
 const getImportantGlowClass = (theme) => {
     const glows = {
-        amber: 'bg-gradient-to-b from-amber-400 to-orange-500 group-hover:shadow-[0_0_15px_#d97706]',
-        indigo: 'bg-gradient-to-b from-indigo-400 to-blue-500 group-hover:shadow-[0_0_15px_#6366f1]'
+        amber: 'bg-amber-500',
+        indigo: 'bg-indigo-500'
     }
     return glows[theme] || 'bg-gray-500'
 }

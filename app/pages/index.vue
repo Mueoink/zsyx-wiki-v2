@@ -1,8 +1,8 @@
 <!-- app/pages/index.vue -->
 <template>
     <div>
-        <main class="max-w-[1400px] mx-auto px-4 xl:px-8 mt-6 flex flex-col lg:flex-row gap-6">
-            <div class="flex-1 min-w-0 flex flex-col gap-6">
+        <main class="max-w-[1400px] mx-auto px-3 sm:px-4 xl:px-8 mt-4 sm:mt-6 flex flex-col lg:flex-row gap-4 sm:gap-5 lg:gap-6">
+            <div class="flex-1 min-w-0 flex flex-col gap-5">
 
                 <!-- 首页滚动大屏 -->
               <CarouselBanner />
@@ -15,7 +15,7 @@
 
             </div>
 
-            <aside class="w-full lg:w-[320px] shrink-0 flex flex-col gap-6 self-start sticky top-24 pb-8">
+            <aside class="w-full lg:w-[320px] shrink-0 flex flex-col gap-5 self-start sticky top-20 pb-8">
 
                 <!-- 更新日志 -->
                <UpdateLogBoard />
@@ -26,7 +26,7 @@
 
             </aside>
         </main>
-        <footer class="max-w-[1400px] mx-auto px-4 xl:px-8 mt-16 mb-8 relative z-10">
+        <footer class="max-w-[1400px] mx-auto px-4 xl:px-8 mt-10 sm:mt-16 mb-6 sm:mb-8 relative z-10">
             <div class="h-px bg-gradient-to-r from-transparent via-gray-700/50 to-transparent w-full mb-8"></div>
             <div class="flex flex-col items-center justify-center gap-2 text-sm text-gray-500 text-center">
 

@@ -1,22 +1,22 @@
 <!-- app/components/content/MajorCharacterSheet.vue -->
 <template>
-    <div v-if="charData" class="space-y-8 my-8 font-sans">
+    <div v-if="charData" class="space-y-4 sm:space-y-6 my-4 sm:my-8 font-sans min-w-0">
         <div
             class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-xl overflow-hidden shadow-sm relative">
             <div class="h-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-amber-500"></div>
 
-            <div class="p-6 md:p-8 relative">
+            <div class="p-4 sm:p-6 md:p-8 relative">
                 <Icon name="ph:fingerprint-duotone"
                     class="absolute right-4 top-4 text-[150px] text-slate-500/5 dark:text-gray-500/5 pointer-events-none" />
 
-                <div class="flex flex-col md:flex-row justify-between gap-6 relative z-10">
+                <div class="flex flex-col md:flex-row justify-between gap-4 sm:gap-6 relative z-10 min-w-0">
 
                     <div class="space-y-4">
                         <div>
                             <div
                                 class="text-xs font-mono text-slate-400 dark:text-gray-500 mb-1 tracking-widest uppercase">
                                 File ID: {{ charData.id_code }}</div>
-                            <h1 class="text-4xl font-black text-slate-900 dark:text-white font-serif tracking-widest">{{
+                            <h1 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white font-serif tracking-wide sm:tracking-widest break-words">{{
                                 charData.name }}</h1>
                             <div class="text-sm text-slate-500 dark:text-gray-400 mt-1 font-medium">外号：{{
                                 charData.nicknames }}</div>
@@ -30,7 +30,7 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-x-8 gap-y-3 text-sm md:text-right">
+                    <div class="grid grid-cols-1 min-[360px]:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-3 text-sm md:text-right">
                         <div>
                             <div class="text-xs text-slate-400 dark:text-gray-500 font-bold uppercase">常态性别 / A年龄
                             </div>
@@ -53,9 +53,9 @@
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
 
-            <div class="bg-slate-50 dark:bg-[#15151a]/50 border border-slate-200 dark:border-gray-800 rounded-xl p-6">
+            <div class="bg-slate-50 dark:bg-[#15151a]/50 border border-slate-200 dark:border-gray-800 rounded-xl p-4 sm:p-6 min-w-0">
                 <h3 class="flex items-center gap-2 text-lg font-bold text-slate-800 dark:text-white mb-4">
                     <Icon name="ph:eye-duotone" class="text-indigo-500" /> 外貌特征
                 </h3>
@@ -69,7 +69,7 @@
                 </div>
             </div>
 
-            <div class="bg-slate-50 dark:bg-[#15151a]/50 border border-slate-200 dark:border-gray-800 rounded-xl p-6">
+            <div class="bg-slate-50 dark:bg-[#15151a]/50 border border-slate-200 dark:border-gray-800 rounded-xl p-4 sm:p-6 min-w-0">
                 <h3 class="flex items-center gap-2 text-lg font-bold text-slate-800 dark:text-white mb-4">
                     <Icon name="ph:mask-happy-duotone" class="text-amber-500" /> 性格侧写
                 </h3>
@@ -90,8 +90,8 @@
         </div>
 
         <div v-if="charData.background || charData.story"
-            class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-xl p-6 shadow-sm">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-xl p-4 sm:p-6 shadow-sm min-w-0">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-8">
 
                 <div v-if="charData.background" class="space-y-3">
                     <h3 class="flex items-center gap-2 text-lg font-bold text-slate-800 dark:text-white">
@@ -107,7 +107,7 @@
                         <Icon name="ph:path-duotone" class="text-purple-500" /> 角色故事线
                     </h3>
                     <div
-                        class="text-sm text-slate-600 dark:text-gray-400 leading-relaxed space-y-3 h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                        class="text-sm text-slate-600 dark:text-gray-400 leading-relaxed space-y-3 max-h-[60dvh] lg:h-[400px] lg:max-h-none overflow-y-auto pr-2 custom-scrollbar">
                         <p v-for="(para, idx) in formatText(charData.story)" :key="idx">{{ para }}</p>
                     </div>
                 </div>
@@ -115,13 +115,13 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
 
-            <div class="bg-slate-50 dark:bg-[#15151a]/50 border border-slate-200 dark:border-gray-800 rounded-xl p-6">
+            <div class="bg-slate-50 dark:bg-[#15151a]/50 border border-slate-200 dark:border-gray-800 rounded-xl p-4 sm:p-6 min-w-0">
                 <h3 class="flex items-center gap-2 text-lg font-bold text-slate-800 dark:text-white mb-4">
                     <Icon name="ph:share-network-duotone" class="text-blue-500" /> 关联角色
                 </h3>
-                <div class="grid grid-cols-2 gap-3">
+                <div class="grid grid-cols-1 min-[360px]:grid-cols-2 gap-3">
                     <div v-for="rel in charData.relations" :key="rel.name"
                         class="flex items-center justify-between p-2 bg-white dark:bg-[#1a1a21] rounded border border-slate-200 dark:border-gray-700/50">
                         <span class="font-bold text-slate-700 dark:text-gray-200 text-sm">{{ rel.name }}</span>
@@ -131,7 +131,7 @@
             </div>
 
             <div
-                class="bg-slate-50 dark:bg-[#15151a]/50 border border-slate-200 dark:border-gray-800 rounded-xl p-6 space-y-4">
+                class="bg-slate-50 dark:bg-[#15151a]/50 border border-slate-200 dark:border-gray-800 rounded-xl p-4 sm:p-6 space-y-4 min-w-0">
                 <h3 class="flex items-center gap-2 text-lg font-bold text-slate-800 dark:text-white mb-2">
                     <Icon name="ph:chat-centered-text-duotone" class="text-pink-500" /> 人物评价
                 </h3>
@@ -149,7 +149,7 @@
         <div class="space-y-6">
 
             <div
-                class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-xl p-6 shadow-sm">
+                class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-xl p-4 sm:p-6 shadow-sm min-w-0">
                 <h3 class="text-base font-bold text-slate-800 dark:text-white mb-3">能力与持有物</h3>
                 <div class="flex flex-wrap gap-2 mb-4">
                     <span v-for="ab in charData.abilities" :key="ab"
@@ -164,7 +164,7 @@
             </div>
 
             <div v-if="charData.remarks && charData.remarks.length > 0"
-                class="bg-amber-50/50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/30 rounded-xl p-6">
+                class="bg-amber-50/50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/30 rounded-xl p-4 sm:p-6 min-w-0">
                 <h3 class="flex items-center gap-2 text-base font-bold text-amber-800 dark:text-amber-500 mb-3">
                     <Icon name="ph:info-duotone" /> 档案备注
                 </h3>

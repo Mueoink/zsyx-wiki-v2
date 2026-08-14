@@ -1,7 +1,7 @@
 <!-- app/components/content/Note.vue -->
 <template>
     <div
-        class="my-6 px-5 py-4 bg-blue-50 border border-blue-100 border-l-4 border-l-blue-500 rounded-r-lg rounded-l-sm shadow-md relative overflow-hidden">
+        class="my-5 sm:my-6 px-3 sm:px-5 py-3 sm:py-4 bg-blue-50 border border-blue-100 border-l-4 border-l-blue-500 rounded-r-lg rounded-l-sm shadow-sm relative overflow-hidden">
         <Icon name="ph:info-duotone" class="absolute -right-4 -top-4 text-6xl text-blue-500/10 pointer-events-none" />
         <div class="flex items-center gap-1.5 text-blue-700 font-bold text-xs tracking-widest mb-2 font-mono uppercase">
             <Icon name="ph:info-bold" class="text-sm" />

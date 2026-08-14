@@ -1,15 +1,15 @@
 <template>
     <div
-        class="max-w-[1000px] mx-auto py-8 px-4 text-slate-800 dark:text-gray-300 font-sans transition-colors duration-300">
+        class="max-w-[1000px] mx-auto -mx-4 sm:mx-0 py-3 sm:py-6 md:py-8 px-0 sm:px-4 text-slate-800 dark:text-gray-300 font-sans transition-colors duration-300">
 
-        <div class="flex flex-col gap-8 items-center w-full">
+        <div class="flex flex-col gap-6 sm:gap-8 items-center w-full">
 
             <div
-                class="w-full bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-2xl p-6 md:p-8 shadow-sm transition-colors">
+                class="w-full bg-white dark:bg-[#1a1a21] border-y sm:border border-slate-200 dark:border-gray-700/50 rounded-none sm:rounded-xl p-3 sm:p-6 md:p-8 shadow-none sm:shadow-sm transition-colors">
 
                 <div class="text-center mb-6 border-b border-slate-100 dark:border-gray-800 pb-6">
                     <h2
-                        class="text-2xl md:text-3xl font-serif font-black text-slate-800 dark:text-white flex items-center justify-center gap-2 mb-2">
+                        class="text-xl sm:text-2xl md:text-3xl font-serif font-black text-slate-800 dark:text-white flex items-center justify-center gap-2 mb-2">
                         <Icon name="ph:shooting-star-duotone" class="text-amber-500 text-3xl md:text-4xl" /> 虚空祈求终端
                     </h2>
                     <div
@@ -20,7 +20,7 @@
 
                 <div class="mb-8">
                     <button @click="showRates = !showRates"
-                        class="w-full flex items-center justify-between p-4 bg-slate-50 hover:bg-slate-100 dark:bg-[#15151a] dark:hover:bg-gray-800 border border-slate-200 dark:border-gray-800 rounded-xl transition-colors font-bold text-sm text-slate-600 dark:text-gray-300">
+                        class="w-full flex items-center justify-between p-3 sm:p-4 bg-slate-50 hover:bg-slate-100 dark:bg-[#15151a] dark:hover:bg-gray-800 border border-slate-200 dark:border-gray-800 rounded-lg sm:rounded-xl transition-colors font-bold text-sm text-slate-600 dark:text-gray-300">
                         <span class="flex items-center gap-2">
                             <Icon name="ph:info-duotone" class="text-indigo-500 text-lg" /> 祈求概率公示
                         </span>
@@ -30,7 +30,7 @@
                     <transition name="collapse">
                         <div v-show="showRates" class="overflow-hidden">
                             <div
-                                class="p-4 md:p-6 mt-2 bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-800 rounded-xl text-xs md:text-sm text-slate-600 dark:text-gray-300 space-y-4">
+                                class="p-3 sm:p-4 md:p-6 mt-2 bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-800 rounded-lg sm:rounded-xl text-xs md:text-sm text-slate-600 dark:text-gray-300 space-y-4">
                                 <ul class="list-disc pl-5 space-y-1 font-bold">
                                     <li>所有SSS以上的等级均视为SP</li>
                                     <li>天赋和道具均可从虚空中祈求获得</li>
@@ -98,16 +98,16 @@
                     </transition>
                 </div>
 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+                <div class="grid grid-cols-1 min-[420px]:grid-cols-2 gap-3 sm:gap-4 mb-6">
                     <button @click="performSingleDraw" :disabled="isDrawing"
-                        class="w-full sm:w-auto min-w-[180px] px-6 py-4 bg-amber-500 hover:bg-amber-600 disabled:bg-slate-200 dark:disabled:bg-gray-800 disabled:text-slate-400 text-white rounded-xl font-black text-sm md:text-base shadow-md hover:shadow-lg transition-all active:scale-95 disabled:active:scale-100 flex items-center justify-center gap-2">
+                        class="w-full px-4 sm:px-6 py-3.5 sm:py-4 bg-amber-500 hover:bg-amber-600 disabled:bg-slate-200 dark:disabled:bg-gray-800 disabled:text-slate-400 text-white rounded-lg sm:rounded-xl font-black text-sm md:text-base shadow-sm transition-colors flex items-center justify-center gap-2">
                         <Icon v-if="!isDrawing" name="ph:star-duotone" class="text-xl" />
                         <Icon v-else name="ph:spinner-gap-bold" class="text-xl animate-spin" />
                         {{ isDrawing ? '祈求中...' : '进行祈求 (x1)' }}
                     </button>
 
                     <button @click="performMultiDraw(5)" :disabled="isDrawing"
-                        class="w-full sm:w-auto min-w-[180px] px-6 py-4 bg-indigo-500 hover:bg-indigo-600 disabled:bg-slate-200 dark:disabled:bg-gray-800 disabled:text-slate-400 text-white rounded-xl font-black text-sm md:text-base shadow-md hover:shadow-lg transition-all active:scale-95 disabled:active:scale-100 flex items-center justify-center gap-2">
+                        class="w-full px-4 sm:px-6 py-3.5 sm:py-4 bg-indigo-500 hover:bg-indigo-600 disabled:bg-slate-200 dark:disabled:bg-gray-800 disabled:text-slate-400 text-white rounded-lg sm:rounded-xl font-black text-sm md:text-base shadow-sm transition-colors flex items-center justify-center gap-2">
                         <Icon v-if="!isDrawing" name="ph:stars-duotone" class="text-xl" />
                         <Icon v-else name="ph:spinner-gap-bold" class="text-xl animate-spin" />
                         {{ isDrawing ? '祈求中...' : '进行祈求 (x5)' }}
@@ -115,14 +115,14 @@
                 </div>
 
                 <div
-                    class="text-center text-xs font-bold text-slate-500 dark:text-gray-400 bg-slate-50 dark:bg-[#15151a] py-2.5 px-5 rounded-xl border border-slate-100 dark:border-gray-800 inline-block mx-auto mb-8 w-full md:w-auto shadow-sm">
+                    class="text-center text-xs font-bold text-slate-500 dark:text-gray-400 bg-slate-50 dark:bg-[#15151a] py-2.5 px-3 sm:px-5 rounded-lg sm:rounded-xl border border-slate-100 dark:border-gray-800 mx-auto mb-6 sm:mb-8 w-full md:w-auto shadow-sm leading-relaxed">
                     已祈求 <span class="text-indigo-500 text-sm mx-1">{{ drawCount }}</span> 次 <span
-                        class="mx-3 text-slate-300 dark:text-gray-700">|</span> 距下次SS+保底 <span
+                        class="mx-1 sm:mx-3 text-slate-300 dark:text-gray-700">|</span> 距下次SS+保底 <span
                         class="text-amber-500 text-sm mx-1">{{ pityThresholdSSPlus - pityCounterSSPlus }}</span> 次
                 </div>
 
                 <div
-                    class="w-full min-h-[360px] flex items-center justify-center relative bg-slate-50 dark:bg-[#15151a] rounded-2xl border border-slate-100 dark:border-gray-800 p-4 md:p-8 overflow-hidden shadow-inner">
+                    class="w-full min-h-[300px] sm:min-h-[360px] flex items-center justify-center relative bg-slate-50 dark:bg-[#15151a] rounded-lg sm:rounded-2xl border border-slate-100 dark:border-gray-800 p-2.5 sm:p-4 md:p-8 overflow-hidden shadow-inner">
 
                     <transition name="fade" mode="out-in">
                         <div v-if="isDrawing" key="loading"
@@ -133,7 +133,7 @@
                         </div>
 
                       <div v-else-if="drawnCard" :key="drawnCard.uniqueId" class="w-full max-w-[460px]">
-                            <div class="relative bg-white dark:bg-[#1a1a21] border-2 rounded-2xl p-5 md:p-7 flex flex-col items-center justify-center text-center shadow-2xl transition-all duration-500 overflow-hidden min-h-[320px] md:min-h-[360px]"
+                            <div class="relative bg-white dark:bg-[#1a1a21] border-2 rounded-lg sm:rounded-2xl p-3 sm:p-5 md:p-7 flex flex-col items-center justify-center text-center shadow-sm sm:shadow-2xl transition-all duration-500 overflow-hidden min-h-[280px] sm:min-h-[320px] md:min-h-[360px]"
                                 :class="getCardWrapperStyle(drawnCard.group)">
 
                                 <!-- 发光背景特效 -->
@@ -142,21 +142,21 @@
                                     :class="getShineBackground(drawnCard.group)"></div>
 
                                 <!-- 顶部双角标 -->
-                                <div class="absolute top-4 left-4 right-4 flex justify-between items-start z-10">
+                                <div class="absolute top-3 sm:top-4 left-3 sm:left-4 right-3 sm:right-4 flex justify-between items-start gap-2 z-10">
                                     <span
-                                        class="px-4 py-1.5 rounded-lg text-sm font-black shadow-md tracking-wider flex items-center justify-center leading-none border-transparent"
+                                        class="px-2.5 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-black shadow-sm tracking-wider flex items-center justify-center leading-none border-transparent shrink-0"
                                         :style="getRarityStyle(drawnCard.group)">
                                         {{ drawnCard.level }}
                                     </span>
                                     <span
-                                        class="text-xs font-bold text-slate-500 dark:text-gray-400 bg-slate-100/80 dark:bg-[#15151a]/80 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-slate-200 dark:border-gray-700 leading-none shadow-sm">
+                                        class="text-[11px] sm:text-xs font-bold text-slate-500 dark:text-gray-400 bg-slate-100/80 dark:bg-[#15151a]/80 px-2 sm:px-3 py-1.5 rounded-lg border border-slate-200 dark:border-gray-700 leading-none shadow-sm min-w-0 truncate">
                                         {{ drawnCard.type }}
                                     </span>
                                 </div>
 
                                 <!-- 实体名称 -->
                                 <h3
-                                    class="text-2xl md:text-3xl font-serif font-black mt-14 mb-3 text-slate-800 dark:text-white relative z-10 leading-snug drop-shadow-sm px-2">
+                                    class="text-xl sm:text-2xl md:text-3xl font-serif font-black mt-14 mb-3 text-slate-800 dark:text-white relative z-10 leading-snug px-1 sm:px-2 break-words">
                                     {{ drawnCard.name }}
                                 </h3>
 
@@ -175,7 +175,7 @@
 
                                 <!-- 详细数据滚动区 -->
                                 <div
-                                    class="flex-1 w-full relative z-10 bg-white/90 dark:bg-[#1a1a21]/90 backdrop-blur-md p-4 md:p-5 rounded-xl border border-slate-100 dark:border-gray-700 shadow-sm text-left flex flex-col gap-3 md:gap-4 max-h-[260px] md:max-h-[320px] overflow-y-auto custom-scrollbar">
+                                    class="flex-1 w-full relative z-10 bg-white/90 dark:bg-[#1a1a21]/90 p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border border-slate-100 dark:border-gray-700 shadow-sm text-left flex flex-col gap-3 md:gap-4 max-h-[50dvh] md:max-h-[320px] overflow-y-auto custom-scrollbar">
 
                                     <!-- 效果列表 -->
                                     <div v-if="drawnCard.effects && drawnCard.effects.length > 0"
@@ -229,14 +229,14 @@
             </div>
 
             <div v-if="drawHistory.length > 0"
-                class="w-full bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-2xl p-6 md:p-8 shadow-sm transition-colors">
+                class="w-full bg-white dark:bg-[#1a1a21] border-y sm:border border-slate-200 dark:border-gray-700/50 rounded-none sm:rounded-xl p-3 sm:p-6 md:p-8 shadow-none sm:shadow-sm transition-colors">
                 <h3
                     class="text-xl font-serif font-black mb-6 text-slate-800 dark:text-white flex items-center gap-2 border-b border-slate-100 dark:border-gray-800 pb-4">
                     <Icon name="ph:clock-counter-clockwise-duotone" class="text-indigo-500 text-2xl" /> 祈求记录
                 </h3>
 
                 <div
-                    class="mb-8 bg-slate-50 dark:bg-[#15151a] p-5 rounded-xl border border-slate-100 dark:border-gray-800 shadow-inner">
+                    class="mb-6 sm:mb-8 bg-slate-50 dark:bg-[#15151a] p-3 sm:p-5 rounded-lg sm:rounded-xl border border-slate-100 dark:border-gray-800 shadow-inner">
                     <h4
                         class="text-xs font-bold text-slate-500 dark:text-gray-400 uppercase tracking-widest mb-4 flex items-center gap-2">
                         <Icon name="ph:chart-bar-duotone" /> 低稀有度统计 (D-B)
@@ -263,7 +263,7 @@
                     <div v-if="highLevelHistoryItems.length > 0"
                         class="flex flex-col gap-3 max-h-[350px] overflow-y-auto pr-2 custom-scrollbar">
                         <div v-for="card in highLevelHistoryItems" :key="card.uniqueId"
-                            class="flex items-center justify-between p-3.5 bg-slate-50 hover:bg-slate-100 dark:bg-[#15151a] dark:hover:bg-gray-800 border border-slate-200 dark:border-gray-800 rounded-xl transition-colors shadow-sm">
+                            class="flex flex-col min-[380px]:flex-row min-[380px]:items-center justify-between gap-2 p-3 sm:p-3.5 bg-slate-50 hover:bg-slate-100 dark:bg-[#15151a] dark:hover:bg-gray-800 border border-slate-200 dark:border-gray-800 rounded-lg sm:rounded-xl transition-colors shadow-sm min-w-0">
                             <div class="flex items-center gap-3 md:gap-4 min-w-0">
                                <span
                                     class="px-2.5 py-1 rounded text-xs font-black shadow-sm tracking-wider shrink-0 leading-none border-transparent"

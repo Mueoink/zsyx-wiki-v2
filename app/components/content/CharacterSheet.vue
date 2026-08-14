@@ -1,8 +1,8 @@
 <!-- app/components/content/CharacterSheet.vue -->
 <template>
-    <div v-if="charData" class="space-y-8 my-8 font-sans">
+    <div v-if="charData" class="space-y-6 md:space-y-8 my-6 md:my-8 font-sans min-w-0">
 
-        <div class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-xl p-6 shadow-sm overflow-hidden relative flex flex-col gap-8 transition-colors duration-300"
+        <div class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-lg sm:rounded-xl p-3 sm:p-5 md:p-6 shadow-sm overflow-hidden relative flex flex-col gap-5 md:gap-8 transition-colors duration-300 min-w-0"
             :class="hasGallery ? 'lg:flex-row' : ''">
 
             <Icon name="ph:user-circle-gear-duotone"
@@ -29,7 +29,7 @@
 
             <div class="flex-1 space-y-6 relative z-10">
                 <div>
-                    <h2 class="text-4xl font-black text-slate-900 dark:text-white font-serif tracking-widest mb-2">{{
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white font-serif tracking-wide sm:tracking-widest mb-2 break-words">{{
                         charData.name }}</h2>
                     <div class="flex flex-wrap gap-2">
                         <span v-for="tag in (charData.identity || [])" :key="tag"
@@ -40,7 +40,7 @@
                 </div>
 
                 <div
-                    class="grid grid-cols-2 gap-4 bg-slate-50 dark:bg-[#15151a]/50 p-4 rounded-lg border border-slate-100 dark:border-gray-800 transition-colors">
+                    class="grid grid-cols-1 min-[360px]:grid-cols-2 gap-3 sm:gap-4 bg-slate-50 dark:bg-[#15151a]/50 p-3 sm:p-4 rounded-lg border border-slate-100 dark:border-gray-800 transition-colors">
                     <div class="space-y-1">
                         <div class="text-xs text-slate-400 dark:text-gray-500 font-bold uppercase">常态性别</div>
                         <div class="font-bold text-slate-700 dark:text-gray-200">{{ charData.gender }}</div>
@@ -49,7 +49,7 @@
                         <div class="text-xs text-slate-400 dark:text-gray-500 font-bold uppercase">年龄</div>
                         <div class="font-bold text-slate-700 dark:text-gray-200">{{ charData.age }}</div>
                     </div>
-                    <div class="col-span-2 space-y-1">
+                    <div class="min-[360px]:col-span-2 space-y-1">
                         <div class="text-xs text-slate-400 dark:text-gray-500 font-bold uppercase">信仰</div>
                         <div class="font-bold text-indigo-600 dark:text-indigo-400">{{ charData.faith }}</div>
                     </div>
@@ -89,14 +89,14 @@
             </div>
         </div>
 
-        <div v-if="charData.background || charData.story" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div v-if="charData.background || charData.story" class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-8 min-w-0">
 
             <div v-if="charData.background" class="space-y-3">
                 <h3 class="flex items-center gap-2 text-lg font-bold text-slate-800 dark:text-white">
                     <Icon name="ph:book-open-text-duotone" class="text-indigo-500" /> 背景故事
                 </h3>
                 <div
-                    class="text-sm text-slate-600 dark:text-gray-400 leading-relaxed space-y-4 bg-slate-50 dark:bg-[#1a1a21]/50 p-5 rounded-xl border border-slate-100 dark:border-gray-800 transition-colors">
+                    class="text-sm text-slate-600 dark:text-gray-400 leading-relaxed space-y-4 bg-slate-50 dark:bg-[#1a1a21]/50 p-3 sm:p-5 rounded-lg sm:rounded-xl border border-slate-100 dark:border-gray-800 transition-colors">
                     <p v-for="(para, idx) in formatText(charData.background)" :key="idx">
                         {{ para }}
                     </p>
@@ -108,7 +108,7 @@
                     <Icon name="ph:path-duotone" class="text-amber-500" /> 角色故事线
                 </h3>
                 <div
-                    class="text-sm text-slate-600 dark:text-gray-400 leading-relaxed space-y-4 bg-slate-50 dark:bg-[#1a1a21]/50 p-5 rounded-xl border border-slate-100 dark:border-gray-800 h-[400px] overflow-y-auto pr-2 custom-scrollbar transition-colors">
+                    class="text-sm text-slate-600 dark:text-gray-400 leading-relaxed space-y-4 bg-slate-50 dark:bg-[#1a1a21]/50 p-3 sm:p-5 rounded-lg sm:rounded-xl border border-slate-100 dark:border-gray-800 max-h-[60dvh] lg:h-[400px] lg:max-h-none overflow-y-auto custom-scrollbar transition-colors">
                     <p v-for="(para, idx) in formatText(charData.story)" :key="idx">
                         {{ para }}
                     </p>

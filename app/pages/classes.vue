@@ -1,7 +1,7 @@
 <!-- app/pages/classes.vue -->
 <template>
-    <div class="max-w-[1200px] mx-auto px-4 py-8 xl:px-8 min-h-[80vh]">
-        <div class="mb-10 text-center relative flex flex-col items-center">
+    <div class="max-w-[1200px] mx-auto px-4 py-6 md:py-8 xl:px-8 min-h-[80vh]">
+        <div class="mb-8 md:mb-10 text-center relative flex flex-col items-center">
             <Icon name="ph:hexagon-duotone"
                 class="absolute left-1/2 -top-10 -translate-x-1/2 text-[150px] text-indigo-500/5 dark:text-indigo-500/10 pointer-events-none transition-colors" />
 
@@ -11,7 +11,7 @@
             </div>
 
             <h1
-                class="text-4xl md:text-5xl font-extrabold text-slate-800 dark:text-white font-serif mb-4 tracking-wider z-10 transition-colors">
+                class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-800 dark:text-white font-serif mb-4 tracking-wide sm:tracking-wider z-10 transition-colors">
                 信 仰 职 业 表
             </h1>
 
@@ -22,7 +22,7 @@
 
             <!-- 贡献者区域 -->
             <div
-                class="flex flex-wrap justify-center items-center gap-4 text-sm text-slate-600 dark:text-gray-500 z-10 bg-white/80 dark:bg-[#1a1a21]/80 backdrop-blur-sm px-6 py-3 rounded-2xl border border-slate-200 dark:border-gray-700/50 shadow-sm transition-colors">
+                class="flex flex-wrap justify-center items-center gap-3 sm:gap-4 text-sm text-slate-600 dark:text-gray-500 z-10 bg-white/80 dark:bg-[#1a1a21]/80 px-4 sm:px-6 py-3 rounded-lg sm:rounded-xl border border-slate-200 dark:border-gray-700/50 shadow-sm transition-colors w-full sm:w-auto">
                 <div class="flex items-center gap-1.5">
                     <Icon name="ph:database-duotone" class="text-base text-slate-500 dark:text-gray-400" />
                     全表由以下人员合力编撰
@@ -49,12 +49,12 @@
             </div>
         </div>
 
-        <div class="space-y-12 relative z-10">
+        <div class="space-y-6 md:space-y-12 relative z-10">
 
             <section v-for="(faithData, index) in faithClasses" :key="faithData.faith"
-                class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-2xl overflow-hidden shadow-lg flex flex-col xl:flex-row group transition-colors">
+                class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-xl overflow-hidden shadow-sm md:shadow-lg flex flex-col xl:flex-row group transition-colors">
 
-                <div class="xl:w-[320px] shrink-0 p-8 relative flex flex-col justify-center overflow-hidden border-b xl:border-b-0 xl:border-r border-slate-200 dark:border-gray-700/50 transition-colors"
+                <div class="xl:w-[320px] shrink-0 p-5 sm:p-6 md:p-8 relative flex flex-col justify-center overflow-hidden border-b xl:border-b-0 xl:border-r border-slate-200 dark:border-gray-700/50 transition-colors"
                     :class="getThemeBg(faithData.theme)">
 
 
@@ -73,7 +73,7 @@
                             FAITH ORIGIN</div>
 
                         <h2
-                            class="text-4xl font-black text-slate-800 dark:text-white font-serif tracking-widest mb-4 drop-shadow-sm dark:drop-shadow-md transition-colors">
+                            class="text-3xl sm:text-4xl font-black text-slate-800 dark:text-white font-serif tracking-wide sm:tracking-widest mb-4 drop-shadow-sm dark:drop-shadow-md transition-colors break-words">
                             {{ faithData.faith }}
                         </h2>
 
@@ -85,12 +85,12 @@
                 </div>
 
                 <div
-                    class="flex-1 p-6 md:p-8 bg-slate-50 dark:bg-gradient-to-br dark:from-[#1a1a21] dark:to-[#15151a] transition-colors">
+                    class="flex-1 p-3 sm:p-5 md:p-8 bg-slate-50 dark:bg-gradient-to-br dark:from-[#1a1a21] dark:to-[#15151a] transition-colors min-w-0">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
                         <!-- 职业卡片 -->
                         <div v-for="career in faithData.careers" :key="career.name"
-                            class="bg-white dark:bg-[#22222b] border border-slate-200 dark:border-gray-700/40 rounded-xl p-4 hover:border-slate-300 dark:hover:border-gray-500 hover:shadow-md dark:hover:shadow-none transition-all duration-300 relative overflow-hidden group/card">
+                            class="bg-white dark:bg-[#22222b] border border-slate-200 dark:border-gray-700/40 rounded-lg p-3 sm:p-4 hover:border-slate-300 dark:hover:border-gray-500 hover:shadow-md dark:hover:shadow-none transition-all duration-300 relative overflow-hidden group/card min-w-0">
 
                             <!-- 类型 -->
                             <div class="absolute top-0 right-0 px-2 py-0.5 text-[10px] font-bold tracking-widest rounded-bl-lg border-l border-b border-slate-100 dark:border-gray-700/50 transition-colors"

@@ -1,6 +1,6 @@
 <!-- app/pages/contributors.vue -->
 <template>
-    <div class="max-w-[1200px] mx-auto px-4 py-8 xl:px-8 min-h-[80vh]">
+    <div class="max-w-[1200px] mx-auto px-4 py-6 md:py-8 xl:px-8 min-h-[80vh]">
 
         <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-gray-500 mb-8 font-mono">
             <NuxtLink to="/" class="hover:text-amber-600 dark:hover:text-amber-500 transition flex items-center gap-1">
@@ -12,7 +12,7 @@
 
 
         <header
-            class="relative bg-white dark:bg-[#1a1a21] border border-amber-200 dark:border-amber-900/30 rounded-xl p-8 mb-12 flex flex-col items-center text-center shadow-md dark:shadow-[0_0_30px_rgba(217,119,6,0.05)] overflow-hidden transition-colors duration-300">
+            class="relative bg-white dark:bg-[#1a1a21] border border-amber-200 dark:border-amber-900/30 rounded-xl p-5 sm:p-8 mb-8 md:mb-12 flex flex-col items-center text-center shadow-sm md:shadow-md overflow-hidden transition-colors duration-300">
             <!-- 背景 -->
             <Icon name="ph:medal-duotone"
                 class="absolute -top-10 -right-10 text-9xl text-amber-500/10 dark:text-amber-500/5 rotate-12 pointer-events-none" />
@@ -23,7 +23,7 @@
                 class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 dark:from-amber-500 dark:to-orange-600 rounded-2xl flex items-center justify-center shadow-lg shadow-amber-500/20 mb-6">
                 <Icon name="ph:crown-simple-duotone" class="text-3xl text-white" />
             </div>
-            <h1 class="text-4xl md:text-5xl font-black text-slate-800 dark:text-white font-serif mb-4 tracking-wide">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-800 dark:text-white font-serif mb-4 tracking-wide">
                 贡献人员 <span class="text-amber-600 dark:text-amber-500">与</span> 社区支持
             </h1>
             <p class="text-sm md:text-base text-slate-600 dark:text-gray-400 max-w-2xl leading-relaxed">
@@ -33,9 +33,9 @@
             </p>
         </header>
 
-        <section class="mb-16">
+        <section class="mb-10 md:mb-16">
             <div
-                class="flex items-center gap-3 mb-6 border-b border-slate-200 dark:border-gray-700/50 pb-3 transition-colors duration-300">
+                class="flex flex-wrap items-center gap-2 sm:gap-3 mb-5 md:mb-6 border-b border-slate-200 dark:border-gray-700/50 pb-3 transition-colors duration-300">
                 <Icon name="ph:pen-nib-duotone" class="text-2xl text-amber-600 dark:text-amber-500" />
                 <h2 class="text-2xl font-bold text-slate-800 dark:text-gray-100 font-serif">内容贡献人员</h2>
                 <span
@@ -45,7 +45,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <div v-for="(member, index) in displayTeamMembers" :key="member.name"
-                    class="relative group bg-white dark:bg-[#1a1a21] border p-5 rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex items-center gap-4 overflow-hidden"
+                    class="relative group bg-white dark:bg-[#1a1a21] border p-4 sm:p-5 rounded-lg sm:rounded-xl transition-all duration-300 hover:shadow-md flex items-center gap-3 sm:gap-4 overflow-hidden min-w-0"
                     :class="getBorderClass(member.role)">
 
                     <!-- 名次水印 -->
@@ -84,7 +84,7 @@
 
         <section>
             <div
-                class="flex items-center gap-3 mb-6 border-b border-slate-200 dark:border-gray-700/50 pb-3 transition-colors duration-300">
+                class="flex flex-wrap items-center gap-2 sm:gap-3 mb-5 md:mb-6 border-b border-slate-200 dark:border-gray-700/50 pb-3 transition-colors duration-300">
                 <Icon name="ph:hands-clapping-duotone" class="text-2xl text-purple-600 dark:text-purple-400" />
                 <h2 class="text-2xl font-bold text-slate-800 dark:text-gray-100 font-serif">社区支持人员</h2>
                 <span
@@ -93,7 +93,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <div v-for="member in communityMembers" :key="member.name"
-                    class="group bg-white dark:bg-[#1a1a21] border border-purple-200 dark:border-purple-900/30 p-5 rounded-xl transition-all duration-300 hover:border-purple-400 dark:hover:border-purple-500/50 hover:bg-purple-50 dark:hover:bg-[#1f1a26] flex items-center gap-4">
+                    class="group bg-white dark:bg-[#1a1a21] border border-purple-200 dark:border-purple-900/30 p-4 sm:p-5 rounded-lg sm:rounded-xl transition-all duration-300 hover:border-purple-400 dark:hover:border-purple-500/50 hover:bg-purple-50 dark:hover:bg-[#1f1a26] flex items-center gap-3 sm:gap-4 min-w-0">
 
                     <div
                         class="w-14 h-14 bg-slate-100 dark:bg-gray-900 shrink-0 rounded-full flex items-center justify-center overflow-hidden border-2 border-purple-300 dark:border-purple-500/60 shadow-sm dark:shadow-[0_0_10px_rgba(168,85,247,0.2)]">

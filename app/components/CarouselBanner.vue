@@ -1,14 +1,14 @@
 <!-- app/components/CarouselBanner.vue -->
 <template>
     <section
-        class="relative bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 p-1.5 rounded-xl shadow-lg shadow-slate-200/50 dark:shadow-black/20 transition-colors duration-300">
+        class="relative bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 p-1 rounded-lg shadow-sm transition-colors duration-300">
 
         <div ref="carouselContainer"
             class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-2 rounded-lg scroll-smooth"
             @mouseenter="pauseCarousel" @mouseleave="resumeCarousel">
 
             <NuxtLink v-for="(slide, index) in carouselSlides" :key="slide.id" :to="slide.link"
-                class="snap-center shrink-0 w-full md:w-[85%] lg:w-[100%] xl:w-[800px] h-[220px] md:h-[320px] relative group cursor-pointer bg-slate-800 dark:bg-gray-900 overflow-hidden rounded-lg block">
+                class="snap-center shrink-0 w-full md:w-[85%] lg:w-[100%] xl:w-[800px] h-[200px] sm:h-[220px] md:h-[320px] relative group cursor-pointer bg-slate-800 dark:bg-gray-900 overflow-hidden rounded-md block">
 
                 <div v-if="slide.image"
                     class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -21,7 +21,7 @@
 
 
                 <div
-                    class="absolute inset-y-0 left-0 w-full md:w-3/4 bg-gradient-to-r from-white/95 via-white/60 dark:from-[#15151a]/95 dark:via-[#15151a]/60 to-transparent p-6 md:p-10 flex flex-col justify-end transition-colors duration-300">
+                    class="absolute inset-y-0 left-0 w-full md:w-3/4 bg-gradient-to-r from-white/95 via-white/70 dark:from-[#15151a]/95 dark:via-[#15151a]/70 to-transparent p-4 sm:p-6 md:p-10 flex flex-col justify-end transition-colors duration-300">
 
                     <div class="flex items-center gap-2 mb-3 relative z-10">
                         <span class="px-2 py-0.5 text-white text-[10px] font-bold tracking-wider rounded shadow-sm"
@@ -36,17 +36,17 @@
                     </div>
 
                     <h2
-                        class="text-2xl md:text-4xl font-bold text-slate-900 dark:text-white mb-3 font-serif tracking-wide drop-shadow-md transition-colors duration-300 relative z-10 group-hover:text-indigo-700 dark:group-hover:text-indigo-300">
+                        class="text-xl sm:text-2xl md:text-4xl font-bold text-slate-900 dark:text-white mb-2 sm:mb-3 font-serif tracking-wide transition-colors duration-300 relative z-10 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 break-words">
                         {{ slide.title }}
                     </h2>
 
                     <p
-                        class="text-sm text-slate-700 dark:text-gray-300 line-clamp-2 md:line-clamp-3 leading-relaxed max-w-lg transition-colors duration-300 font-medium drop-shadow-sm relative z-10">
+                        class="text-sm text-slate-700 dark:text-gray-300 line-clamp-2 md:line-clamp-3 leading-relaxed max-w-lg transition-colors duration-300 font-medium relative z-10">
                         {{ slide.description }}
                     </p>
 
                     <div
-                        class="mt-4 flex items-center gap-1 text-xs font-bold text-indigo-500 dark:text-indigo-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                        class="mt-3 sm:mt-4 flex items-center gap-1 text-xs font-bold text-indigo-500 dark:text-indigo-400 md:opacity-0 md:-translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
                         <span>点击查看</span>
                         <Icon name="ph:arrow-right-bold" />
                     </div>

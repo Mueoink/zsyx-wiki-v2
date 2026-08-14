@@ -1,7 +1,7 @@
 <!-- app/pages/storyline.vue -->
 <template>
     <div
-        class="relative min-h-screen pb-32 overflow-hidden bg-slate-50 dark:bg-[#0a0a0c] transition-colors duration-500">
+        class="relative min-h-screen pb-20 md:pb-32 overflow-hidden bg-slate-50 dark:bg-[#0a0a0c] transition-colors duration-500">
         <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
             <div
                 class="absolute inset-0 bg-slate-50 dark:bg-gradient-to-b dark:from-[#0a0a0c] dark:via-[#1a1a2e] dark:to-[#0a0a0c] opacity-90 transition-colors duration-500">
@@ -22,13 +22,13 @@
             </div>
         </div>
 
-        <div class="relative z-10 pt-24 pb-24 text-center px-4">
+        <div class="relative z-10 pt-14 pb-14 md:pt-24 md:pb-24 text-center px-4">
             <div
-                class="inline-flex items-center gap-3 px-4 py-1.5 border border-indigo-200 dark:border-amber-500/20 bg-white/50 dark:bg-amber-500/5 text-indigo-600 dark:text-amber-500 text-xs font-mono font-bold tracking-[0.2em] rounded-full mb-6 backdrop-blur-md shadow-sm transition-colors">
+                class="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 border border-indigo-200 dark:border-amber-500/20 bg-white/50 dark:bg-amber-500/5 text-indigo-600 dark:text-amber-500 text-[10px] sm:text-xs font-mono font-bold tracking-[0.12em] sm:tracking-[0.2em] rounded-full mb-5 sm:mb-6 shadow-sm transition-colors">
                 <Icon name="ph:hourglass-high-duotone" /> CHRONICLES OF AKASHA
             </div>
             <h1
-                class="text-5xl md:text-7xl font-black text-slate-900 dark:text-white font-serif mb-6 tracking-widest drop-shadow-sm dark:drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-colors">
+                class="text-4xl sm:text-5xl md:text-7xl font-black text-slate-900 dark:text-white font-serif mb-5 md:mb-6 tracking-wide sm:tracking-widest transition-colors">
                 寰 宇 编 年 史
             </h1>
             <p
@@ -43,20 +43,20 @@
 
             <!-- 中轴线 (贯穿) -->
             <div
-                class="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-slate-300 dark:via-indigo-500/30 to-transparent transition-colors">
+                class="absolute left-6 sm:left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-slate-300 dark:via-indigo-500/30 to-transparent transition-colors">
             </div>
 
-            <div class="space-y-16">
+            <div class="space-y-8 md:space-y-16">
 
                 <NuxtLink v-for="(vol, index) in volumes" :key="vol.id" :to="vol.path" class="relative group block">
 
                     <div
-                        class="absolute left-8 md:left-1/2 top-1/2 -translate-y-1/2 w-4 h-4 md:-ml-2 rounded-full border-4 border-white dark:border-[#0a0a0c] bg-slate-400 dark:bg-indigo-500 shadow-md dark:shadow-[0_0_20px_rgba(99,102,241,0.5)] z-20 transition-all duration-500 group-hover:scale-125 group-hover:bg-indigo-600 dark:group-hover:bg-amber-500">
+                        class="absolute left-6 sm:left-8 md:left-1/2 top-1/2 -translate-y-1/2 -ml-2 w-4 h-4 rounded-full border-4 border-white dark:border-[#0a0a0c] bg-slate-400 dark:bg-indigo-500 shadow-md z-20 transition-all duration-500 group-hover:scale-125 group-hover:bg-indigo-600 dark:group-hover:bg-amber-500">
                     </div>
 
     
                     <div
-                        class="relative ml-16 md:ml-0 bg-white dark:bg-[#15151a]/80 backdrop-blur-xl border border-slate-200 dark:border-white/10 rounded-2xl p-8 md:p-10 shadow-lg hover:shadow-xl dark:shadow-none transition-all duration-500 group-hover:-translate-y-1 group-hover:border-indigo-300 dark:group-hover:border-indigo-500/30 overflow-hidden">
+                        class="relative ml-12 sm:ml-16 md:ml-0 bg-white dark:bg-[#15151a]/90 border border-slate-200 dark:border-white/10 rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-10 shadow-sm md:shadow-lg hover:shadow-lg dark:shadow-none transition-all duration-300 group-hover:border-indigo-300 dark:group-hover:border-indigo-500/30 overflow-hidden min-w-0">
 
 
                         <div
@@ -65,14 +65,14 @@
                         </div>
 
        
-                        <div class="relative z-10 flex flex-col md:flex-row md:items-center gap-6">
+                        <div class="relative z-10 flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
 
     
                             <div class="shrink-0 flex flex-col items-start gap-3">
                                 <div
-                                    class="w-16 h-16 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5 flex items-center justify-center shadow-inner transition-colors group-hover:bg-indigo-50 dark:group-hover:bg-indigo-500/20">
+                                    class="w-12 h-12 sm:w-16 sm:h-16 rounded-lg sm:rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5 flex items-center justify-center shadow-inner transition-colors group-hover:bg-indigo-50 dark:group-hover:bg-indigo-500/20">
                                     <Icon :name="vol.icon"
-                                        class="text-4xl text-slate-400 dark:text-slate-500 group-hover:text-indigo-500 dark:group-hover:text-amber-400 transition-colors duration-300" />
+                                        class="text-3xl sm:text-4xl text-slate-400 dark:text-slate-500 group-hover:text-indigo-500 dark:group-hover:text-amber-400 transition-colors duration-300" />
                                 </div>
                                 <span
                                     class="px-2 py-1 text-[10px] font-bold uppercase tracking-widest rounded bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-indigo-300 border border-slate-200 dark:border-white/5 group-hover:border-indigo-200 dark:group-hover:border-indigo-500/30 transition-colors">
@@ -81,7 +81,7 @@
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h2
-                                    class="text-3xl md:text-4xl font-black text-slate-800 dark:text-white font-serif mb-3 transition-colors group-hover:text-indigo-600 dark:group-hover:text-indigo-300">
+                                    class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-800 dark:text-white font-serif mb-3 transition-colors group-hover:text-indigo-600 dark:group-hover:text-indigo-300 break-words">
                                     {{ vol.title.split('：')[1] || vol.title }}
                                 </h2>
                                 <p

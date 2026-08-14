@@ -1,10 +1,10 @@
 <!-- app/components/content/FactionCard.vue -->
 <template>
     <aside
-        class="w-full mb-10 bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/60 rounded-xl overflow-hidden shadow-md dark:shadow-lg font-sans transition-colors duration-300">
+        class="w-full mb-6 sm:mb-10 bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/60 rounded-xl overflow-hidden shadow-md dark:shadow-lg font-sans transition-colors duration-300 min-w-0">
 
         <div
-            class="relative min-h-[140px] bg-gradient-to-br from-slate-100 to-slate-200/50 dark:from-[#1e2329] dark:to-[#15181d] border-b border-slate-200 dark:border-gray-700/60 flex flex-col items-center justify-center p-8 transition-colors duration-300 overflow-hidden">
+            class="relative min-h-[120px] sm:min-h-[140px] bg-gradient-to-br from-slate-100 to-slate-200/50 dark:from-[#1e2329] dark:to-[#15181d] border-b border-slate-200 dark:border-gray-700/60 flex flex-col items-center justify-center p-4 sm:p-8 transition-colors duration-300 overflow-hidden">
 
             <Icon name="ph:flag-banner-duotone"
                 class="absolute -right-10 -bottom-10 text-[180px] text-slate-900/[0.03] dark:text-white/[0.03] pointer-events-none transition-colors duration-300" />
@@ -14,7 +14,7 @@
                 {{ isPlayer ? '玩家阵营 PLAYER FACTION' : '原住民势力 NATIVE FACTION' }}
             </div>
             <h3
-                class="text-4xl md:text-5xl font-black text-slate-800 dark:text-gray-100 font-serif tracking-widest relative z-10 transition-colors drop-shadow-sm text-center mt-2">
+                class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-800 dark:text-gray-100 font-serif tracking-wide sm:tracking-widest relative z-10 transition-colors drop-shadow-sm text-center mt-2 break-words px-3">
                 {{ name }}
             </h3>
         </div>
@@ -22,10 +22,10 @@
         <div class="flex flex-col md:flex-row">
 
             <div
-                class="md:w-1/3 p-5 md:p-6 md:border-r border-slate-200 dark:border-gray-800 bg-slate-50/50 dark:bg-[#15151a]/30 transition-colors duration-300 space-y-4">
+                class="md:w-1/3 p-3 sm:p-5 md:p-6 md:border-r border-slate-200 dark:border-gray-800 bg-slate-50/50 dark:bg-[#15151a]/30 transition-colors duration-300 space-y-4 min-w-0">
 
                 <div
-                    class="flex justify-between items-center py-2 border-b border-slate-200/60 dark:border-gray-800/60">
+                    class="flex justify-between items-center gap-3 py-2 border-b border-slate-200/60 dark:border-gray-800/60 min-w-0">
                     <span
                         class="text-slate-500 dark:text-gray-500 flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest">
                         <Icon name="ph:hands-praying-duotone" class="text-amber-500 text-lg" /> 主导信仰
@@ -54,7 +54,7 @@
                     <span class="text-indigo-700 dark:text-indigo-300 font-bold pl-6 text-sm">{{ leader }}</span>
                 </div>
 
-                <div class="flex justify-between items-center pt-2">
+                <div class="flex justify-between items-center gap-3 pt-2 min-w-0">
                     <span
                         class="text-slate-500 dark:text-gray-500 flex items-center gap-1.5 text-[11px] uppercase font-bold tracking-widest">
                         <Icon name="ph:activity-duotone" class="text-purple-500 text-base" /> 势力状态
@@ -69,7 +69,7 @@
             </div>
 
             <div
-                class="flex-1 p-5 md:p-8 bg-white dark:bg-[#1a1a21] transition-colors duration-300 flex flex-col gap-6">
+                class="flex-1 p-3 sm:p-5 md:p-8 bg-white dark:bg-[#1a1a21] transition-colors duration-300 flex flex-col gap-4 sm:gap-6 min-w-0">
 
                 <div v-if="coreBelief" class="relative pl-6 py-2">
                     <Icon name="ph:quotes-duotone"

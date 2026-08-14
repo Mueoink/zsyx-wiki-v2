@@ -9,7 +9,7 @@
         </div>
 
 
-        <div class="p-5 md:p-6 border-b border-slate-100 dark:border-gray-800/60 relative overflow-hidden"
+        <div class="p-3 sm:p-5 md:p-6 border-b border-slate-100 dark:border-gray-800/60 relative overflow-hidden"
             :class="getLevelBg(item.group)">
             <Icon :name="item.type === '道具' ? 'ph:treasure-chest-duotone' : 'ph:shooting-star-duotone'"
                 class="absolute -right-4 -top-2 text-[80px] opacity-[0.03] dark:opacity-[0.06] pointer-events-none" />
@@ -27,7 +27,7 @@
                 {{ item.name }}</h3>
         </div>
 
-        <div class="p-5 md:p-6 space-y-5 flex-1 bg-slate-50/30 dark:bg-transparent">
+        <div class="p-3 sm:p-5 md:p-6 space-y-4 sm:space-y-5 flex-1 bg-slate-50/30 dark:bg-transparent min-w-0">
 
 
             <div v-if="item.firstAppear"
@@ -60,7 +60,7 @@
         </div>
 
         <div
-            class="px-5 py-4 border-t border-slate-100 dark:border-gray-800 flex items-center justify-between mt-auto bg-slate-50 dark:bg-[#15151a]/50">
+            class="px-3 sm:px-5 py-3 sm:py-4 border-t border-slate-100 dark:border-gray-800 flex items-center justify-between gap-3 mt-auto bg-slate-50 dark:bg-[#15151a]/50 min-w-0">
             <span class="text-xs font-medium text-slate-500 dark:text-gray-400 flex items-center gap-1.5 tracking-wide">
                 <Icon name="ph:pen-nib-duotone" class="text-base" /> 卷宗收录
             </span>

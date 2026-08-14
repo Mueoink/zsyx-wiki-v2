@@ -1,6 +1,6 @@
 <!-- app/pages/category/[name].vue -->
 <template>
-    <div class="max-w-[1200px] mx-auto px-4 py-8 xl:px-8 min-h-[80vh]">
+    <div class="max-w-[1200px] mx-auto px-4 py-6 md:py-8 xl:px-8 min-h-[80vh]">
 
         <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-gray-500 mb-6 font-mono transition-colors">
             <NuxtLink to="/" class="hover:text-slate-800 dark:hover:text-gray-300 transition flex items-center gap-1">
@@ -13,7 +13,7 @@
         </div>
 
         <header
-            class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700 rounded-xl p-6 md:p-8 mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 shadow-sm dark:shadow-md relative overflow-hidden transition-colors duration-300">
+            class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700 rounded-xl p-4 sm:p-6 md:p-8 mb-6 md:mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-6 shadow-sm relative overflow-hidden transition-colors duration-300">
 
             <div class="absolute top-0 left-0 w-1.5 h-full bg-indigo-500"></div>
 
@@ -24,7 +24,7 @@
                 </div>
 
                 <h1
-                    class="text-3xl md:text-5xl font-bold text-slate-800 dark:text-white font-serif mb-2 transition-colors">
+                    class="text-3xl md:text-5xl font-bold text-slate-800 dark:text-white font-serif mb-2 transition-colors break-words">
                     {{ categoryName }}
                 </h1>
                 <p class="text-sm text-slate-500 dark:text-gray-400 transition-colors">
@@ -41,9 +41,9 @@
 
         <div v-if="entries && entries.length > 0">
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                 <NuxtLink v-for="entry in entries" :key="entry.path" :to="entry.path"
-                    class="group bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700 hover:border-indigo-400 dark:hover:border-indigo-500 transition-colors duration-300 rounded-xl p-5 flex flex-col min-h-[200px] shadow-sm hover:shadow-md dark:hover:shadow-lg">
+                    class="group bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700 hover:border-indigo-400 dark:hover:border-indigo-500 transition-colors duration-300 rounded-lg sm:rounded-xl p-4 sm:p-5 flex flex-col min-h-[160px] sm:min-h-[200px] shadow-sm hover:shadow-md min-w-0">
 
                     <div class="flex justify-between items-start mb-2">
                         <h2

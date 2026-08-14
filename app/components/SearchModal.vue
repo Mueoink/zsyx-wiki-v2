@@ -3,18 +3,18 @@
     <Transition enter-active-class="transition duration-200 ease-out" enter-from-class="opacity-0"
         enter-to-class="opacity-100" leave-active-class="transition duration-150 ease-in" leave-from-class="opacity-100"
         leave-to-class="opacity-0">
-        <div v-if="isOpen" class="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] px-4"
+        <div v-if="isOpen" class="fixed inset-0 z-[100] flex items-start justify-center p-2 pt-3 sm:pt-[15vh] sm:px-4"
             @click.self="close">
 
             <div class="absolute inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-sm"></div>
 
             <div
-                class="relative w-full max-w-2xl bg-white dark:bg-[#1a1a21] rounded-xl shadow-2xl overflow-hidden border border-slate-200 dark:border-gray-700 flex flex-col max-h-[70vh]">
+                class="relative w-full max-w-2xl bg-white dark:bg-[#1a1a21] rounded-lg sm:rounded-xl shadow-2xl overflow-hidden border border-slate-200 dark:border-gray-700 flex flex-col max-h-[calc(100dvh-1.25rem)] sm:max-h-[70vh]">
 
-                <div class="flex items-center px-4 border-b border-slate-100 dark:border-gray-800">
+                <div class="flex items-center px-3 sm:px-4 border-b border-slate-100 dark:border-gray-800">
                     <Icon name="ph:magnifying-glass-duotone" class="text-2xl text-slate-400 dark:text-gray-500" />
                     <input ref="searchInput" v-model="query" type="text"
-                        class="w-full h-16 bg-transparent border-none outline-none px-4 text-lg text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-gray-600 font-sans"
+                        class="w-full h-14 sm:h-16 bg-transparent border-none outline-none px-3 sm:px-4 text-base sm:text-lg text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-gray-600 font-sans min-w-0"
                         placeholder="搜索词条、作者、标签、内容..." @input="onInput" @keydown.down.prevent="navigate('down')"
                         @keydown.up.prevent="navigate('up')" @keydown.enter="onEnter" />
                     <div
@@ -32,15 +32,15 @@
                         <div v-if="selectedIndex === index"
                             class="absolute left-0 top-2 bottom-2 w-1 bg-indigo-500 rounded-r-full"></div>
 
-                        <div class="flex items-center justify-between mb-1">
-                            <div class="flex items-center gap-2">
+                        <div class="flex items-start justify-between mb-1 min-w-0">
+                            <div class="flex flex-wrap items-center gap-2 min-w-0">
                                 <Icon v-if="item.navType === 'community'" name="ph:users-three-duotone"
                                     class="text-amber-500" />
                                 <Icon v-else-if="item.type === 'announcement'" name="ph:speaker-high-duotone"
                                     class="text-blue-500" />
                                 <Icon v-else name="ph:file-text-duotone" class="text-indigo-500" />
 
-                                <span class="font-bold text-slate-800 dark:text-gray-100"
+                                <span class="font-bold text-slate-800 dark:text-gray-100 break-words min-w-0"
                                     :class="selectedIndex === index ? 'text-indigo-700 dark:text-indigo-300' : ''">
                                     {{ item.title }}
                                 </span>
@@ -91,7 +91,7 @@
                 </div>
 
                 <div
-                    class="bg-slate-50 dark:bg-black/20 border-t border-slate-100 dark:border-gray-800 p-2 flex items-center justify-between text-[10px] text-slate-400 dark:text-gray-600 px-4">
+                    class="hidden sm:flex bg-slate-50 dark:bg-black/20 border-t border-slate-100 dark:border-gray-800 p-2 items-center justify-between text-[10px] text-slate-400 dark:text-gray-600 px-4">
                     <div class="flex gap-4">
                         <span class="flex items-center gap-1"><kbd
                                 class="font-sans bg-white dark:bg-gray-700 px-1 rounded border border-slate-200 dark:border-gray-600">↵</kbd>

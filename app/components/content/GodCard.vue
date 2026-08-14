@@ -15,7 +15,7 @@
                 class="absolute text-7xl text-amber-500/10 dark:text-amber-500/5 pointer-events-none" />
 
             <h3
-                class="text-3xl font-black text-amber-950 dark:text-amber-50 font-serif tracking-widest relative z-10 transition-colors duration-300 drop-shadow-sm">
+                class="text-2xl sm:text-3xl font-black text-amber-950 dark:text-amber-50 font-serif tracking-wide sm:tracking-widest relative z-10 transition-colors duration-300 break-words text-center px-3">
                 {{ name }}
             </h3>
             <p v-if="title"
@@ -30,39 +30,39 @@
                 class="md:w-1/3 p-4 md:p-5 md:border-r border-slate-200 dark:border-gray-800 bg-slate-50/50 dark:bg-[#15151a]/30 transition-colors duration-300 space-y-3">
 
                 <div
-                    class="flex justify-between items-center py-1.5 border-b border-slate-200/50 dark:border-gray-800/50">
+                    class="flex justify-between items-center gap-3 py-1.5 border-b border-slate-200/50 dark:border-gray-800/50 min-w-0">
                     <span class="text-slate-500 dark:text-gray-500 flex items-center gap-1.5 text-xs font-medium">
                         <Icon name="ph:star-duotone" class="text-amber-500 dark:text-amber-600 text-sm" /> 神明级别
                     </span>
-                    <span class="text-amber-700 dark:text-amber-400 font-black font-mono tracking-wider">{{ level
+                    <span class="text-amber-700 dark:text-amber-400 font-black font-mono tracking-wider text-right break-words min-w-0">{{ level
                         }}</span>
                 </div>
 
                 <div
-                    class="flex justify-between items-center py-1.5 border-b border-slate-200/50 dark:border-gray-800/50">
+                    class="flex justify-between items-center gap-3 py-1.5 border-b border-slate-200/50 dark:border-gray-800/50 min-w-0">
                     <span class="text-slate-500 dark:text-gray-500 flex items-center gap-1.5 text-xs font-medium">
                         <Icon name="ph:planet-duotone" class="text-indigo-500 text-sm" /> 所属命途
                     </span>
-                    <span class="text-slate-800 font-medium dark:text-gray-200 ">{{ path }}</span>
+                    <span class="text-slate-800 font-medium dark:text-gray-200 text-right break-words min-w-0">{{ path }}</span>
                 </div>
 
                 <div
-                    class="flex justify-between items-center py-1.5 border-b border-slate-200/50 dark:border-gray-800/50">
+                    class="flex justify-between items-center gap-3 py-1.5 border-b border-slate-200/50 dark:border-gray-800/50 min-w-0">
                     <span class="text-slate-500 dark:text-gray-500 flex items-center gap-1.5 text-xs font-medium">
                         <Icon name="ph:sword-duotone" class="text-red-500 text-sm" /> 对立信仰
                     </span>
-                    <span class="text-slate-900 font-medium dark:text-gray-200 font-medium">{{ opposingFaith }}</span>
+                    <span class="text-slate-900 font-medium dark:text-gray-200 text-right break-words min-w-0">{{ opposingFaith }}</span>
                 </div>
 
                 <div
-                    class="flex justify-between items-center py-1.5 border-b border-slate-200/50 dark:border-gray-800/50">
+                    class="flex justify-between items-center gap-3 py-1.5 border-b border-slate-200/50 dark:border-gray-800/50 min-w-0">
                     <span class="text-slate-500 dark:text-gray-500 flex items-center gap-1.5 text-xs font-medium">
                         <Icon name="ph:gender-intersex-duotone" class="text-purple-500 text-sm" /> 常态性别
                     </span>
-                    <span class="text-purple-700 dark:text-purple-300 font-medium">{{ gender }}</span>
+                    <span class="text-purple-700 dark:text-purple-300 font-medium text-right break-words min-w-0">{{ gender }}</span>
                 </div>
 
-                <div class="flex justify-between items-center py-1.5 pt-2">
+                <div class="flex justify-between items-center gap-3 py-1.5 pt-2 min-w-0">
                     <span class="text-slate-500 dark:text-gray-500 flex items-center gap-1.5 text-xs font-medium">
                         <Icon name="ph:heartbeat-duotone" class="text-emerald-500 text-sm" /> 当前状态
                     </span>
@@ -76,7 +76,7 @@
             </div>
 
             <div
-                class="flex-1 p-5 md:p-8 bg-white dark:bg-[#1a1a21] transition-colors duration-300 flex flex-col gap-5">
+                class="flex-1 p-3 sm:p-5 md:p-8 bg-white dark:bg-[#1a1a21] transition-colors duration-300 flex flex-col gap-5 min-w-0">
 
                 <div v-if="prayer"
                     class="flex items-start gap-3 bg-amber-50/50 dark:bg-amber-900/10 p-3.5 rounded-lg border border-amber-100 dark:border-amber-900/30">

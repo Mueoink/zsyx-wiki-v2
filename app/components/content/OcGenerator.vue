@@ -1,14 +1,14 @@
 <!-- app/components/OcGenerator.vue -->
 <template>
-    <div class="max-w-[1000px] mx-auto py-8 text-slate-800 dark:text-gray-300 font-sans transition-colors duration-300">
+    <div class="max-w-[1000px] mx-auto -mx-4 sm:mx-0 py-3 sm:py-6 md:py-8 text-slate-800 dark:text-gray-300 font-sans transition-colors duration-300">
 
         <div v-if="showImagePreviewModal" @click="showImagePreviewModal = false"
-            class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex justify-center items-center p-4">
+            class="fixed inset-0 bg-slate-900/80 z-[100] flex justify-center items-center p-2 sm:p-4">
             <div @click.stop
-                class="bg-white dark:bg-[#1a1a21] p-6 rounded-2xl max-w-2xl w-full flex flex-col gap-4 text-center border border-slate-200 dark:border-gray-700 shadow-2xl">
+                class="bg-white dark:bg-[#1a1a21] p-3 sm:p-6 rounded-lg sm:rounded-2xl max-w-2xl max-h-[calc(100dvh-1rem)] w-full flex flex-col gap-3 sm:gap-4 text-center border border-slate-200 dark:border-gray-700 shadow-2xl overflow-hidden">
                 <h3 class="text-xl font-bold text-slate-800 dark:text-white">卡片生成成功</h3>
                 <div
-                    class="overflow-y-auto max-h-[60vh] rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-[#15151a]">
+                    class="overflow-y-auto flex-1 min-h-0 rounded-lg sm:rounded-xl border border-slate-200 dark:border-gray-800 bg-slate-50 dark:bg-[#15151a]">
                     <img :src="generatedImageUrl" alt="OC卡片" class="w-full h-auto object-contain !m-0 block" />
                 </div>
                 <p class="text-sm text-slate-500 dark:text-gray-400">请长按图片或右键保存到本地</p>
@@ -19,15 +19,15 @@
             </div>
         </div>
 
-        <div class="flex flex-col gap-10 items-center w-full">
+        <div class="flex flex-col gap-6 sm:gap-10 items-center w-full">
             <div
-                class="w-full bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-2xl p-6 md:p-8 shadow-sm transition-colors">
+                class="w-full bg-white dark:bg-[#1a1a21] border-y sm:border border-slate-200 dark:border-gray-700/50 rounded-none sm:rounded-xl p-3 sm:p-6 md:p-8 shadow-none sm:shadow-sm transition-colors">
                 <h2
-                    class="text-2xl font-serif font-black mb-8 text-slate-800 dark:text-white flex items-center gap-2 border-b border-slate-100 dark:border-gray-800 pb-4">
+                    class="text-xl sm:text-2xl font-serif font-black mb-6 sm:mb-8 text-slate-800 dark:text-white flex items-start gap-2 border-b border-slate-100 dark:border-gray-800 pb-4">
                     <Icon name="ph:user-circle-gear-duotone" class="text-indigo-500 text-3xl" /> 角色档案录入终端
                 </h2>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
 
                     <div class="space-y-6">
                         <div>
@@ -52,12 +52,12 @@
                                             class="oc-input text-lg font-bold">
                                     </div>
                                 </div>
-                                <div class="grid grid-cols-3 gap-3">
+                                <div class="grid grid-cols-1 min-[380px]:grid-cols-3 gap-2.5 sm:gap-3">
                                     <input v-model="oc.info.gender" placeholder="性别" class="oc-input">
                                     <input v-model="oc.info.age" type="number" placeholder="年龄" class="oc-input">
                                     <input v-model="oc.info.birthday" placeholder="生日" class="oc-input">
                                 </div>
-                                <div class="grid grid-cols-2 gap-3">
+                                <div class="grid grid-cols-1 min-[360px]:grid-cols-2 gap-2.5 sm:gap-3">
                                     <input v-model="oc.info.height" placeholder="身高 (如:185cm)" class="oc-input">
                                     <input v-model="oc.info.weight" placeholder="体重 (如:70kg)" class="oc-input">
                                 </div>
@@ -73,7 +73,7 @@
                                 class="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase tracking-widest mb-3">2.
                                 信仰与排名</label>
                             <div class="space-y-3">
-                                <div class="grid grid-cols-2 gap-3">
+                                <div class="grid grid-cols-1 min-[360px]:grid-cols-2 gap-2.5 sm:gap-3">
                                     <select v-model="oc.keyStats.faith" @change="handleFaithChange"
                                         class="oc-input font-bold text-indigo-700 dark:text-indigo-400">
                                         <option v-for="faith in faiths" :key="faith" :value="faith">【{{ faith }}】
@@ -88,7 +88,7 @@
                                         </option>
                                     </select>
                                 </div>
-                                <div class="grid grid-cols-2 gap-3">
+                                <div class="grid grid-cols-1 min-[360px]:grid-cols-2 gap-2.5 sm:gap-3">
                                     <div><label class="oc-label">登神之路</label><input
                                             v-model.number="oc.keyStats.ascensionPath" type="number" class="oc-input">
                                     </div>
@@ -111,7 +111,7 @@
                                 <span>3. 角色属性</span><span class="text-[10px] lowercase text-slate-400">Slider</span>
                             </label>
                             <div
-                                class="space-y-4 bg-slate-50 dark:bg-[#15151a] p-4 rounded-xl border border-slate-200 dark:border-gray-800">
+                                class="space-y-4 bg-slate-50 dark:bg-[#15151a] p-3 sm:p-4 rounded-lg sm:rounded-xl border border-slate-200 dark:border-gray-800">
                                 <div v-for="(stat, key) in { piety: '虔诚', morality: '道德' }" :key="key">
                                     <div class="flex justify-between text-xs mb-1 font-bold">
                                         <span class="text-slate-600 dark:text-gray-400">{{ stat }}</span>
@@ -163,7 +163,7 @@
 
 
             <button @click="generateImage" :disabled="isGenerating"
-                class="w-[280px] py-4 bg-gradient-to-r from-indigo-500 to-fuchsia-500 hover:from-indigo-600 hover:to-fuchsia-600 text-white rounded-full font-black text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all disabled:opacity-70 disabled:hover:translate-y-0 flex justify-center items-center gap-2 active:scale-95">
+                class="w-[280px] max-w-[calc(100%_-_2rem)] py-3.5 sm:py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-black text-base sm:text-lg shadow-sm transition-colors disabled:opacity-70 flex justify-center items-center gap-2">
                 <Icon :name="isGenerating ? 'ph:spinner-gap-bold' : 'ph:camera-duotone'"
                     :class="isGenerating ? 'animate-spin' : ''" />
                 {{ isGenerating ? '正在显影...' : '生成档案快照' }}
@@ -171,7 +171,7 @@
 
             <div class="w-full max-w-[640px] flex justify-center pb-12">
                 <div ref="previewCard" id="oc-preview-card"
-                    class="w-full bg-[#fafafa] dark:bg-[#15151a] rounded-[24px] overflow-hidden relative shadow-2xl border border-slate-200 dark:border-gray-800 pb-8 text-slate-800 dark:text-gray-200 transition-colors">
+                    class="w-full bg-[#fafafa] dark:bg-[#15151a] rounded-lg sm:rounded-[24px] overflow-hidden relative shadow-sm sm:shadow-2xl border border-slate-200 dark:border-gray-800 pb-6 sm:pb-8 text-slate-800 dark:text-gray-200 transition-colors">
 
                     <div
                         class="h-32 bg-gradient-to-r from-indigo-900 via-purple-900 to-slate-900 relative overflow-hidden">
@@ -183,19 +183,19 @@
                             ARCHIVES</div>
                     </div>
 
-                    <div class="px-6 md:px-8 -mt-16 relative z-10">
+                    <div class="px-3 sm:px-6 md:px-8 -mt-14 sm:-mt-16 relative z-10">
 
                 
-                        <div class="flex items-end gap-5 mb-8">
+                        <div class="flex items-end gap-3 sm:gap-5 mb-6 sm:mb-8 min-w-0">
                             <div
-                                class="w-28 h-28 md:w-32 md:h-32 rounded-2xl bg-white dark:bg-[#1a1a21] p-1.5 shadow-xl shrink-0 border border-slate-200 dark:border-gray-700">
+                                class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-xl sm:rounded-2xl bg-white dark:bg-[#1a1a21] p-1 shadow-lg sm:shadow-xl shrink-0 border border-slate-200 dark:border-gray-700">
                                 <img :src="displayAvatarSrc" @error="onImageError"
                                     class="w-full h-full object-cover rounded-xl !m-0 block" />
                             </div>
                             <div class="pb-1 min-w-0">
                      
                                 <h1
-                                    class="text-3xl md:text-4xl font-serif font-black text-slate-900 dark:text-white mb-2 tracking-wide truncate">
+                                    class="text-2xl sm:text-3xl md:text-4xl font-serif font-black text-slate-900 dark:text-white mb-2 tracking-wide truncate">
                                     {{ oc.name || '未命名实体' }}</h1>
                                 <div class="flex flex-wrap items-center gap-2">
                                     <span
@@ -211,7 +211,7 @@
                         </div>
 
                     
-                        <div class="grid grid-cols-4 gap-2 md:gap-3 mb-8">
+                        <div class="grid grid-cols-2 min-[420px]:grid-cols-4 gap-2 md:gap-3 mb-6 sm:mb-8">
                             <div
                                 class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-800 rounded-xl p-2 md:p-3 text-center shadow-sm">
                                 <div

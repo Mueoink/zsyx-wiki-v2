@@ -1,17 +1,14 @@
 <template>
     <div
-        class="max-w-[1000px] mx-auto py-8 px-4 text-slate-800 dark:text-gray-300 font-sans transition-colors duration-300">
+        class="belief-test-shell max-w-[1000px] mx-auto -mx-4 sm:mx-0 py-3 sm:py-6 md:py-8 px-0 sm:px-4 text-slate-800 dark:text-gray-300 font-sans transition-colors duration-300">
 
         <div v-if="showCommunityPage"
-            class="w-full bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-2xl p-6 md:p-8 shadow-sm transition-colors">
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 relative z-10">
+            class="w-full bg-white dark:bg-[#1a1a21] border-y sm:border border-slate-200 dark:border-gray-700/50 rounded-none sm:rounded-xl p-3 sm:p-6 md:p-8 shadow-none sm:shadow-sm transition-colors">
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10 relative z-10">
 
                 <div class="shrink-0 relative flex flex-col items-center">
                     <div
                         class="w-28 h-28 md:w-36 md:h-36 rounded-2xl bg-white dark:bg-[#1a1a21] p-1.5 shadow-xl shrink-0 border border-slate-200 dark:border-gray-700 relative z-10">
-                        <div
-                            class="absolute inset-0 bg-indigo-400 dark:bg-indigo-500 blur-2xl opacity-20 rounded-full scale-125 pointer-events-none">
-                        </div>
                         <img :src="communityInfo.avatar" alt="Community"
                             class="w-full h-full object-cover rounded-xl !m-0 block relative z-10" />
                         <div
@@ -29,12 +26,12 @@
                     </div>
 
                     <h2
-                        class="text-3xl md:text-4xl font-serif font-black text-slate-800 dark:text-white mb-6 tracking-wide truncate">
+                        class="text-2xl md:text-4xl font-serif font-black text-slate-800 dark:text-white mb-5 tracking-wide truncate">
                         {{ communityInfo.title }}
                     </h2>
 
                     <div
-                        class="bg-slate-50 dark:bg-[#15151a] border border-slate-200 dark:border-gray-800 rounded-xl p-4 md:p-5 shadow-sm w-full max-w-md mx-auto md:mx-0 mb-8">
+                        class="bg-slate-50 dark:bg-[#15151a] border border-slate-200 dark:border-gray-800 rounded-lg p-3 sm:p-4 md:p-5 w-full max-w-md mx-auto md:mx-0 mb-6">
                         <div
                             class="flex justify-between items-center border-b border-slate-100 dark:border-gray-800 pb-2 mb-2">
                             <span
@@ -52,7 +49,7 @@
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start w-full">
                         <button @click="startQuiz"
-                            class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-indigo-500 to-fuchsia-500 hover:from-indigo-600 hover:to-fuchsia-600 text-white rounded-xl font-bold text-sm shadow-md transition-transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                            class="w-full sm:w-auto px-8 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-bold text-sm transition-colors flex items-center justify-center gap-2">
                             <Icon name="ph:rocket-duotone" class="text-lg" /> 启程！开始信仰测试
                         </button>
                         <a :href="communityInfo.joinLink" target="_blank"
@@ -65,9 +62,9 @@
         </div>
 
         <div v-else-if="currentQuestionIndex < questionsList.length"
-            class="w-full bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-2xl p-6 md:p-8 shadow-sm transition-colors">
+            class="w-full bg-white dark:bg-[#1a1a21] border-y sm:border border-slate-200 dark:border-gray-700/50 rounded-none sm:rounded-xl p-3 sm:p-6 md:p-8 shadow-none sm:shadow-sm transition-colors">
 
-            <div class="mb-8">
+            <div class="mb-6 md:mb-8">
                 <div class="flex justify-between items-end mb-3 border-b border-slate-100 dark:border-gray-800 pb-3">
                     <span
                         class="text-xs font-bold text-slate-500 dark:text-gray-400 uppercase tracking-widest flex items-center gap-2">
@@ -86,16 +83,16 @@
             </div>
 
             <h2
-                class="text-xl md:text-2xl font-serif font-black text-slate-800 dark:text-white mb-8 leading-relaxed border-l-4 border-indigo-500 pl-4">
+                class="text-lg sm:text-xl md:text-2xl font-serif font-black text-slate-800 dark:text-white mb-6 md:mb-8 leading-relaxed border-l-2 border-indigo-500 pl-3 sm:pl-4">
                 {{ questionsList[currentQuestionIndex].question }}
             </h2>
 
             <div class="flex flex-col gap-3">
                 <button v-for="(option, index) in questionsList[currentQuestionIndex].options" :key="index"
                     @click="selectOption(option, index)"
-                    class="group flex items-center p-3 sm:p-4 bg-slate-50 dark:bg-[#15151a] border border-slate-200 dark:border-gray-800 hover:border-indigo-400 dark:hover:border-indigo-500 hover:bg-white dark:hover:bg-[#1a1a21] rounded-xl text-left transition-all duration-300 w-full hover:shadow-sm">
+                    class="group flex items-center p-2.5 sm:p-4 bg-slate-50 dark:bg-[#15151a] border border-slate-200 dark:border-gray-800 hover:border-indigo-400 dark:hover:border-indigo-500 hover:bg-white dark:hover:bg-[#1a1a21] rounded-lg text-left transition-colors duration-200 w-full">
                     <div
-                        class="w-10 h-10 flex items-center justify-center bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700 rounded-lg group-hover:bg-indigo-500 group-hover:border-indigo-500 transition-all duration-300 shrink-0 mr-4">
+                        class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700 rounded-md group-hover:bg-indigo-500 group-hover:border-indigo-500 transition-colors duration-200 shrink-0 mr-3 sm:mr-4">
                         <span class="font-black text-slate-500 dark:text-gray-400 group-hover:text-white text-sm">
                             {{ String.fromCharCode(65 + index) }}
                         </span>
@@ -115,23 +112,23 @@
             </div>
         </div>
 
-        <div v-else class="flex flex-col gap-10 items-center w-full">
+        <div v-else class="flex flex-col gap-5 sm:gap-8 items-center w-full">
 
             <div
-                class="w-full bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 rounded-2xl p-6 md:p-8 shadow-sm transition-colors">
+                class="w-full bg-white dark:bg-[#1a1a21] border-y sm:border border-slate-200 dark:border-gray-700/50 rounded-none sm:rounded-xl px-3 py-4 sm:p-6 md:p-8 shadow-none sm:shadow-sm transition-colors">
 
                 <h2
-                    class="text-2xl font-serif font-black mb-8 text-slate-800 dark:text-white flex items-center gap-2 border-b border-slate-100 dark:border-gray-800 pb-4">
+                    class="text-xl sm:text-2xl font-serif font-black mb-6 md:mb-8 text-slate-800 dark:text-white flex items-center gap-2 border-b border-slate-100 dark:border-gray-800 pb-4">
                     <Icon name="ph:scroll-duotone" class="text-indigo-500 text-3xl" /> 信仰解析报告
                 </h2>
 
               
                 <div
-                    class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8 border-b border-slate-100 dark:border-gray-800 pb-8">
+                    class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 mb-6 sm:mb-8 border-b border-slate-100 dark:border-gray-800 pb-6 sm:pb-8">
 
                    
                     <div
-                        class="relative overflow-hidden bg-gradient-to-br from-indigo-50/50 to-white dark:from-indigo-900/10 dark:to-[#1a1a21] border border-indigo-100 dark:border-indigo-800/50 rounded-2xl p-5 md:p-6 shadow-sm flex flex-col justify-between">
+                        class="relative overflow-hidden bg-indigo-50/60 dark:bg-indigo-900/10 border border-indigo-100 dark:border-indigo-800/50 rounded-lg p-3 sm:p-5 md:p-6 flex flex-col justify-between">
                         <Icon name="ph:crown-duotone"
                             class="absolute -right-4 -bottom-4 text-[100px] text-indigo-500/5 dark:text-indigo-400/5 pointer-events-none transform -rotate-12" />
 
@@ -143,7 +140,7 @@
 
                             <div class="relative z-10">
                                 <span
-                                    class="text-4xl md:text-5xl font-serif font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-fuchsia-600 dark:from-indigo-400 dark:to-fuchsia-400 tracking-tight">
+                                    class="text-4xl md:text-5xl font-serif font-black text-indigo-700 dark:text-indigo-300 tracking-tight">
                                     {{ topFaction }}
                                 </span>
                             </div>
@@ -162,7 +159,7 @@
 
         
                     <div
-                        class="relative overflow-hidden bg-slate-50 dark:bg-[#15151a] border border-slate-200 dark:border-gray-800 rounded-2xl p-5 md:p-6 shadow-sm flex flex-col justify-between">
+                        class="relative overflow-hidden bg-slate-50 dark:bg-[#15151a] border border-slate-200 dark:border-gray-800 rounded-lg p-3 sm:p-5 md:p-6 flex flex-col justify-between">
                         <Icon name="ph:mask-happy-duotone"
                             class="absolute -right-4 -bottom-4 text-[100px] text-slate-900/5 dark:text-white/5 pointer-events-none transform rotate-12" />
 
@@ -193,11 +190,34 @@
 
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div
+                    class="mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 border border-indigo-200 dark:border-indigo-800/70 bg-indigo-50/70 dark:bg-indigo-950/20 rounded-lg p-3 sm:p-5">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 font-black text-slate-800 dark:text-white mb-1">
+                            <Icon name="ph:image-square-duotone" class="text-xl text-indigo-600 dark:text-indigo-400" />
+                            保存你的信仰档案
+                        </div>
+                        <p class="m-0 text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-gray-400">
+                            生成适合分享的高清长图，结果与角色匹配会一并收录。
+                        </p>
+                    </div>
+                    <button @click="generateImage" :disabled="isGeneratingImage"
+                        class="w-full sm:w-auto shrink-0 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-black text-sm transition-colors flex items-center justify-center gap-2 disabled:opacity-70">
+                        <Icon :name="isGeneratingImage ? 'ph:spinner-gap-bold' : 'ph:image-square-duotone'"
+                            :class="isGeneratingImage ? 'animate-spin' : ''" class="text-lg" />
+                        {{ isGeneratingImage ? '正在生成...' : '生成分享图' }}
+                    </button>
+                    <p v-if="generationError"
+                        class="w-full m-0 text-xs font-bold text-rose-600 dark:text-rose-400 sm:text-right">
+                        {{ generationError }}
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                     <div v-if="recommendedPrimaryJob"
-                        class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-800 rounded-xl p-4 md:p-5 shadow-sm flex items-center gap-4">
+                        class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-800 rounded-lg p-3 sm:p-4 md:p-5 flex items-center gap-3 sm:gap-4">
                         <div
-                            class="w-12 h-12 bg-indigo-50 dark:bg-[#15151a] rounded-xl flex items-center justify-center border border-indigo-100 dark:border-gray-800 shrink-0">
+                            class="w-10 h-10 sm:w-12 sm:h-12 bg-indigo-50 dark:bg-[#15151a] rounded-lg flex items-center justify-center border border-indigo-100 dark:border-gray-800 shrink-0">
                             <Icon name="ph:sword-duotone" class="text-2xl text-indigo-500" />
                         </div>
                         <div>
@@ -210,9 +230,9 @@
                     </div>
 
                     <div v-if="recommendedSecondaryJob"
-                        class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-800 rounded-xl p-4 md:p-5 shadow-sm flex items-center gap-4">
+                        class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-800 rounded-lg p-3 sm:p-4 md:p-5 flex items-center gap-3 sm:gap-4">
                         <div
-                            class="w-12 h-12 bg-fuchsia-50 dark:bg-[#15151a] rounded-xl flex items-center justify-center border border-fuchsia-100 dark:border-gray-800 shrink-0">
+                            class="w-10 h-10 sm:w-12 sm:h-12 bg-fuchsia-50 dark:bg-[#15151a] rounded-lg flex items-center justify-center border border-fuchsia-100 dark:border-gray-800 shrink-0">
                             <Icon name="ph:shield-star-duotone" class="text-2xl text-fuchsia-500" />
                         </div>
                         <div>
@@ -226,13 +246,13 @@
                 </div>
 
                 <div
-                    class="bg-slate-50 dark:bg-[#15151a] border border-slate-200 dark:border-gray-800 rounded-xl p-4 shadow-sm flex items-center justify-between gap-4 mb-8">
+                    class="bg-slate-50 dark:bg-[#15151a] border border-slate-200 dark:border-gray-800 rounded-lg p-3 sm:p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-6 sm:mb-8">
                     <div
                         class="flex items-center gap-2 text-xs font-bold text-slate-500 dark:text-gray-400 uppercase tracking-widest pl-2">
                         <Icon name="ph:shield-check-duotone" class="text-lg" /> 报告置信度评估
                     </div>
                     <div
-                        class="flex items-center gap-3 bg-white dark:bg-[#1a1a21] px-4 py-1.5 rounded-lg border border-slate-200 dark:border-gray-700 shadow-sm">
+                        class="flex items-center gap-3 bg-white dark:bg-[#1a1a21] px-4 py-1.5 rounded-md border border-slate-200 dark:border-gray-700">
                         <div class="text-xl font-black font-mono" :class="getCredibilityColor(credibilityScore)">
                             {{ credibilityScore }}%
                         </div>
@@ -241,71 +261,92 @@
                     </div>
                 </div>
 
-                <div class="mb-8">
-                    <label
-                        class="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-                        <Icon name="ph:users-three-duotone" class="text-lg" /> 角色匹配
-                    </label>
+                <section class="mb-6 sm:mb-8" aria-labelledby="character-match-title">
+                    <div class="flex items-center justify-between gap-3 mb-3">
+                        <h3 id="character-match-title"
+                            class="m-0 text-xs font-bold text-slate-500 dark:text-gray-400 uppercase tracking-widest flex items-center gap-2">
+                            <Icon name="ph:identification-card-duotone" class="text-lg" /> 角色匹配
+                        </h3>
+                        <span v-if="showCharacterResult"
+                            class="text-[10px] font-mono text-slate-400 dark:text-gray-500">MATCH ARCHIVE</span>
+                    </div>
 
                     <button v-if="!showCharacterResult" @click="findMatchedCharacter"
-                        class="w-full py-6 bg-slate-50 hover:bg-slate-100 dark:bg-[#15151a] dark:hover:bg-gray-800 border border-slate-200 dark:border-gray-800 rounded-xl text-slate-700 dark:text-gray-300 text-sm font-bold transition-colors flex flex-col items-center justify-center gap-2">
-                        <Icon name="ph:magic-wand-duotone" class="text-3xl text-indigo-500" />
-                        检索数据库中的相似存在
+                        class="group w-full p-3 sm:p-4 bg-white hover:bg-slate-50 dark:bg-[#1a1a21] dark:hover:bg-[#202028] border border-slate-200 dark:border-gray-700 rounded-lg text-left transition-colors flex items-center gap-3">
+                        <span
+                            class="w-10 h-10 rounded-md bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+                            <Icon name="ph:scan-duotone" class="text-xl" />
+                        </span>
+                        <span class="flex-1 min-w-0">
+                            <span class="block text-sm font-black text-slate-800 dark:text-gray-200">查找与你最相近的角色</span>
+                            <span class="block mt-0.5 text-xs text-slate-500 dark:text-gray-500">依据命途与信仰分支进行匹配</span>
+                        </span>
+                        <Icon name="ph:arrow-right-bold"
+                            class="text-slate-400 group-hover:text-indigo-500 transition-colors shrink-0" />
                     </button>
 
-                    <div v-if="showCharacterResult"
-                        class="bg-slate-50 dark:bg-[#15151a] border border-slate-200 dark:border-gray-800 rounded-xl p-5 md:p-6 shadow-sm">
+                    <div v-else
+                        class="overflow-hidden bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700 rounded-lg">
                         <div v-if="matchedCharacter">
-                            <div class="flex items-end gap-3 mb-4">
+                            <header
+                                class="px-3 py-4 sm:p-5 bg-slate-50 dark:bg-[#18181e] border-b border-slate-200 dark:border-gray-700 flex items-center gap-3 sm:gap-4">
+                                <div class="flex-1 min-w-0">
+                                    <div
+                                        class="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 tracking-widest uppercase mb-1">
+                                        高相似度档案</div>
+                                    <div
+                                        class="text-2xl sm:text-3xl font-serif font-black text-slate-900 dark:text-white leading-tight break-words">
+                                        {{ matchedCharacter.name }}
+                                    </div>
+                                </div>
                                 <div
-                                    class="text-2xl md:text-3xl font-serif font-black text-slate-900 dark:text-white bg-white dark:bg-[#1a1a21] px-4 py-2 rounded-xl border border-slate-200 dark:border-gray-700 shadow-sm inline-block">
-                                    {{ matchedCharacter.name }}
+                                    class="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-slate-200 dark:border-gray-700 bg-white dark:bg-[#1a1a21] text-indigo-500 flex items-center justify-center shrink-0">
+                                    <Icon name="ph:user-focus-duotone" class="text-2xl" />
                                 </div>
-                            </div>
+                            </header>
 
-                            <div v-if="matchedCharacter.quote"
-                                class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-800 rounded-xl p-4 shadow-sm mb-4">
-                                <p
-                                    class="text-xs md:text-[13px] text-slate-600 dark:text-gray-400 leading-relaxed whitespace-pre-line italic font-serif">
-                                    "{{ matchedCharacter.quote }}"
-                                </p>
-                            </div>
+                            <div class="p-3 sm:p-5 space-y-4">
+                                <blockquote v-if="matchedCharacter.quote"
+                                    class="m-0 border-l-2 border-indigo-400 pl-3 text-[13px] sm:text-sm text-slate-600 dark:text-gray-400 leading-relaxed whitespace-pre-line italic font-serif">
+                                    “{{ matchedCharacter.quote }}”
+                                </blockquote>
 
-                            <div class="space-y-3 mb-4 text-sm">
-                                <div class="flex flex-col gap-1.5 pt-2 border-t border-slate-200 dark:border-gray-800">
-                                    <span
-                                        class="text-slate-500 dark:text-gray-500 text-[11px] font-bold uppercase tracking-widest">档案记录</span>
-                                    <span
-                                        class="font-bold text-[13px] bg-white dark:bg-[#1a1a21] p-3 rounded-lg border border-slate-200 dark:border-gray-700 leading-relaxed">
+                                <div>
+                                    <div
+                                        class="text-[10px] text-slate-400 dark:text-gray-500 font-bold uppercase tracking-widest mb-1.5">
+                                        档案记录</div>
+                                    <p
+                                        class="m-0 text-[13px] sm:text-sm font-medium text-slate-700 dark:text-gray-300 leading-relaxed">
                                         {{ matchedCharacter.description }}
-                                    </span>
+                                    </p>
                                 </div>
-                            </div>
 
-                            <div
-                                class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-800 rounded-xl p-3 text-xs font-bold text-indigo-700 dark:text-indigo-400 flex items-start gap-2">
-                                <Icon name="ph:sparkle-duotone" class="text-lg shrink-0" />
-                                <span>{{ formatMatchReason(matchedCharacter) }}</span>
+                                <div
+                                    class="pt-3 border-t border-slate-100 dark:border-gray-800 text-xs font-bold text-indigo-700 dark:text-indigo-400 flex items-start gap-2 leading-relaxed">
+                                    <Icon name="ph:intersect-duotone" class="text-lg shrink-0" />
+                                    <span>{{ formatMatchReason(matchedCharacter) }}</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div v-else class="text-center py-6 text-slate-400 dark:text-gray-600 text-sm italic">
-                            浩瀚宇宙中，暂未发现与您完全重合的已知角色...
+                        <div v-else class="px-4 py-8 text-center">
+                            <Icon name="ph:orbit-duotone" class="text-3xl text-slate-300 dark:text-gray-700 mb-2" />
+                            <p class="m-0 text-sm text-slate-500 dark:text-gray-500">暂未发现与你足够相近的已知角色</p>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div>
                         <label
                             class="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
                             <Icon name="ph:chart-polar-duotone" class="text-lg" /> 命途倾向度
                         </label>
                         <div
-                            class="space-y-3 bg-slate-50 dark:bg-[#15151a] p-4 rounded-xl border border-slate-200 dark:border-gray-800">
+                            class="space-y-3 bg-slate-50 dark:bg-[#15151a] p-3 sm:p-4 rounded-lg border border-slate-200 dark:border-gray-800">
                             <div v-for="(data, index) in mainFactionPreferenceData" :key="index"
-                                class="flex items-center gap-3 text-xs">
-                                <span class="w-16 text-right font-bold text-slate-600 dark:text-gray-400 shrink-0">{{
+                                class="flex items-center gap-2 sm:gap-3 text-xs">
+                                <span class="w-14 sm:w-16 text-right font-bold text-slate-600 dark:text-gray-400 shrink-0">{{
                                     data.name }}</span>
                                 <div
                                     class="flex-1 h-2 bg-slate-200 dark:bg-gray-800 rounded-full relative overflow-hidden flex items-center shrink-0">
@@ -330,10 +371,10 @@
                             <Icon name="ph:tree-structure-duotone" class="text-lg" /> 信仰分支解析
                         </label>
                         <div
-                            class="space-y-3 bg-slate-50 dark:bg-[#15151a] p-4 rounded-xl border border-slate-200 dark:border-gray-800">
+                            class="space-y-3 bg-slate-50 dark:bg-[#15151a] p-3 sm:p-4 rounded-lg border border-slate-200 dark:border-gray-800">
                             <div v-for="(data, index) in branchFactionPreferenceData" :key="index"
-                                class="flex items-center gap-3 text-xs">
-                                <span class="w-16 text-right font-bold text-slate-600 dark:text-gray-400 shrink-0">{{
+                                class="flex items-center gap-2 sm:gap-3 text-xs">
+                                <span class="w-14 sm:w-16 text-right font-bold text-slate-600 dark:text-gray-400 shrink-0">{{
                                     data.name }}</span>
                                 <div
                                     class="flex-1 h-2 bg-slate-200 dark:bg-gray-800 rounded-full relative overflow-hidden flex items-center shrink-0">
@@ -362,14 +403,8 @@
             </div>
 
             <button @click="restartQuiz"
-                class="w-[280px] py-4 bg-slate-800 hover:bg-slate-700 dark:bg-gray-800 dark:hover:bg-gray-700 text-white rounded-full font-black text-sm shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all flex justify-center items-center gap-2 active:scale-95 mb-8">
+                class="w-[280px] max-w-[calc(100%_-_2rem)] py-3.5 bg-white hover:bg-slate-50 dark:bg-[#1a1a21] dark:hover:bg-gray-800 text-slate-700 dark:text-gray-200 border border-slate-300 dark:border-gray-700 rounded-lg font-bold text-sm transition-colors flex justify-center items-center gap-2 mb-5">
                 <Icon name="ph:arrows-clockwise-bold" class="text-lg" /> 重新校准命运
-            </button>
-            <button @click="generateImage" :disabled="isGeneratingImage"
-                class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-indigo-500 to-fuchsia-500 hover:from-indigo-600 hover:to-fuchsia-600 text-white rounded-xl font-black text-sm shadow-md transition-all flex items-center justify-center gap-2 active:scale-95 disabled:opacity-70 disabled:active:scale-100">
-                <Icon :name="isGeneratingImage ? 'ph:spinner-gap-bold' : 'ph:camera-duotone'"
-                    :class="isGeneratingImage ? 'animate-spin' : ''" class="text-lg" />
-                {{ isGeneratingImage ? '正在生成...' : '生成专属档案卡片' }}
             </button>
 
         </div>
@@ -569,9 +604,57 @@
 
         </div>
     </div>
+
+    <Teleport to="body">
+        <div v-if="showImagePreview" @click.self="closeImagePreview"
+            class="fixed inset-0 z-[100] bg-slate-950/75 p-3 sm:p-6 flex items-center justify-center"
+            role="dialog" aria-modal="true" aria-labelledby="share-preview-title">
+            <div
+                class="w-full max-w-3xl max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-3rem)] bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700 rounded-xl shadow-2xl overflow-hidden flex flex-col">
+                <header
+                    class="px-4 py-3 sm:px-5 border-b border-slate-200 dark:border-gray-700 flex items-center justify-between gap-4 shrink-0">
+                    <div class="min-w-0">
+                        <h2 id="share-preview-title"
+                            class="m-0 text-base sm:text-lg font-black text-slate-900 dark:text-white">分享图已生成</h2>
+                        <p class="m-0 mt-0.5 text-xs text-slate-500 dark:text-gray-500">确认预览后下载，手机端也可使用系统分享。</p>
+                    </div>
+                    <button @click="closeImagePreview" aria-label="关闭分享图预览"
+                        class="w-9 h-9 rounded-md hover:bg-slate-100 dark:hover:bg-gray-800 text-slate-500 dark:text-gray-400 flex items-center justify-center shrink-0 transition-colors">
+                        <Icon name="ph:x-bold" />
+                    </button>
+                </header>
+
+                <div class="flex-1 overflow-y-auto bg-slate-100 dark:bg-[#101014] p-3 sm:p-5">
+                    <img v-if="generatedImageUrl" :src="generatedImageUrl" alt="信仰解析报告分享图预览"
+                        class="block w-full h-auto !m-0 mx-auto bg-white shadow-sm select-none" />
+                </div>
+
+                <footer class="p-3 sm:p-4 border-t border-slate-200 dark:border-gray-700 shrink-0">
+                    <p class="m-0 mb-3 text-xs text-slate-500 dark:text-gray-400 text-center">
+                        {{ previewHint }}
+                    </p>
+                    <div class="grid grid-cols-1 sm:flex sm:justify-end gap-2">
+                        <button v-if="canShareGeneratedImage" @click="shareGeneratedImage"
+                            class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors">
+                            <Icon name="ph:share-network-bold" /> 系统分享
+                        </button>
+                        <button @click="downloadGeneratedImage"
+                            class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 dark:bg-gray-700 dark:hover:bg-gray-600 text-white rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors">
+                            <Icon name="ph:download-simple-bold" /> 下载 PNG
+                        </button>
+                        <button @click="openGeneratedImage"
+                            class="px-5 py-2.5 bg-white hover:bg-slate-50 dark:bg-[#1a1a21] dark:hover:bg-gray-800 border border-slate-300 dark:border-gray-600 text-slate-700 dark:text-gray-200 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-colors">
+                            <Icon name="ph:arrow-square-out-bold" /> 新页面打开
+                        </button>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </Teleport>
 </template>
 
 <script setup>
+import { nextTick, onUnmounted, ref, shallowRef } from 'vue'
 import { useBeliefTest } from '~/composables/useBeliefTest'
 
 const {
@@ -593,34 +676,161 @@ const getCredibilityColor = (score) => {
 
 const exportCard = ref(null);
 const isGeneratingImage = ref(false);
+const showImagePreview = ref(false);
+const generatedImageUrl = ref('');
+const generatedImageBlob = shallowRef(null);
+const canShareGeneratedImage = ref(false);
+const generationError = ref('');
+const previewHint = ref('若浏览器未开始下载，可在新页面打开后长按图片保存。');
+
+const getImageFilename = () => `信仰解析报告_${topFaction.value || '未知'}.png`;
+
+const releaseGeneratedImage = () => {
+    if (generatedImageUrl.value) {
+        URL.revokeObjectURL(generatedImageUrl.value);
+    }
+    generatedImageUrl.value = '';
+    generatedImageBlob.value = null;
+    canShareGeneratedImage.value = false;
+};
+
+const waitForCardAssets = async () => {
+    if (document.fonts?.ready) {
+        await document.fonts.ready;
+    }
+
+    const images = Array.from(exportCard.value?.querySelectorAll('img') || []);
+    await Promise.all(images.map((image) => {
+        if (image.complete) return Promise.resolve();
+        if (typeof image.decode === 'function') return image.decode().catch(() => undefined);
+        return new Promise((resolve) => {
+            image.addEventListener('load', resolve, { once: true });
+            image.addEventListener('error', resolve, { once: true });
+        });
+    }));
+};
+
+const createShareBlob = async (htmlToImage) => {
+    let lastError = null;
+
+    // 高分辨率失败时逐级降档，优先保证低内存设备能够得到完整图片。
+    for (const pixelRatio of [2, 1.5, 1]) {
+        try {
+            const blob = await htmlToImage.toBlob(exportCard.value, {
+                pixelRatio,
+                backgroundColor: '#fafafa',
+                cacheBust: true,
+                skipAutoScale: false,
+            });
+
+            if (blob && blob.size > 5_000) return blob;
+            lastError = new Error('生成的图片内容为空');
+        } catch (error) {
+            lastError = error;
+        }
+    }
+
+    // 少数旧 WebView 的 canvas.toBlob 不稳定，最后用 data URL 走一次兼容路径。
+    try {
+        const dataUrl = await htmlToImage.toPng(exportCard.value, {
+            pixelRatio: 1,
+            backgroundColor: '#fafafa',
+            cacheBust: true,
+            skipAutoScale: false,
+        });
+        const fallbackBlob = await fetch(dataUrl).then((response) => response.blob());
+        if (fallbackBlob.size > 5_000) return fallbackBlob;
+    } catch (error) {
+        lastError = error;
+    }
+
+    throw lastError || new Error('图片生成失败');
+};
 
 const generateImage = async () => {
     if (!exportCard.value || isGeneratingImage.value) return;
     isGeneratingImage.value = true;
+    generationError.value = '';
 
     try {
+        if (!showCharacterResult.value) {
+            findMatchedCharacter();
+            await nextTick();
+        }
+
+        await waitForCardAssets();
         const htmlToImage = await import('html-to-image');
+        const blob = await createShareBlob(htmlToImage);
 
-        // toJpeg 或 toPng。为了不透明背景推荐 toPng 或 toJpeg，此处用 toPng
-        const dataUrl = await htmlToImage.toPng(exportCard.value, {
-            quality: 1,
-            pixelRatio: 2, // 提高清晰度
-            backgroundColor: '#fafafa', // 强制底色
-        });
+        releaseGeneratedImage();
+        generatedImageBlob.value = blob;
+        generatedImageUrl.value = URL.createObjectURL(blob);
 
-        // 触发下载
-        const link = document.createElement('a');
-        link.download = `信仰解析报告_${topFaction.value || '未知'}.png`;
-        link.href = dataUrl;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        if (typeof File !== 'undefined' && navigator.share && navigator.canShare) {
+            try {
+                const file = new File([blob], getImageFilename(), { type: 'image/png' });
+                canShareGeneratedImage.value = navigator.canShare({ files: [file] });
+            } catch {
+                canShareGeneratedImage.value = false;
+            }
+        }
 
+        previewHint.value = canShareGeneratedImage.value
+            ? 'iPhone 或内置浏览器建议使用“系统分享”；也可以长按预览图保存。'
+            : '若浏览器未开始下载，可在新页面打开后长按图片保存。';
+        showImagePreview.value = true;
     } catch (error) {
         console.error('图片生成失败:', error);
-        alert('档案生成失败，可能是由于网络波动或环境限制。');
+        generationError.value = '生成失败，请关闭其他页面后重试；旧设备会自动使用较低清晰度。';
     } finally {
         isGeneratingImage.value = false;
     }
-}
+};
+
+const downloadGeneratedImage = () => {
+    if (!generatedImageUrl.value) return;
+
+    const link = document.createElement('a');
+    link.download = getImageFilename();
+    link.href = generatedImageUrl.value;
+    link.rel = 'noopener';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    previewHint.value = '若没有出现下载提示，请使用“系统分享”，或在新页面打开后长按图片保存。';
+};
+
+const shareGeneratedImage = async () => {
+    if (!generatedImageBlob.value || !canShareGeneratedImage.value) return;
+
+    try {
+        const file = new File([generatedImageBlob.value], getImageFilename(), { type: 'image/png' });
+        await navigator.share({
+            files: [file],
+            title: '诸神愚戏 WIKI 信仰解析报告',
+        });
+    } catch (error) {
+        if (error?.name !== 'AbortError') {
+            console.error('系统分享失败:', error);
+            previewHint.value = '系统分享不可用，请尝试下载，或长按预览图保存。';
+        }
+    }
+};
+
+const openGeneratedImage = () => {
+    if (!generatedImageUrl.value) return;
+    const opened = window.open(generatedImageUrl.value, '_blank');
+    if (!opened) {
+        previewHint.value = '浏览器拦截了新页面，请直接长按上方预览图保存。';
+    } else {
+        opened.opener = null;
+    }
+};
+
+const closeImagePreview = () => {
+    showImagePreview.value = false;
+    releaseGeneratedImage();
+};
+
+onUnmounted(releaseGeneratedImage);
 </script>
