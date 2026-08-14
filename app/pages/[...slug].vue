@@ -3,31 +3,12 @@
   <div class="max-w-[1000px] mx-auto px-4 py-6 md:py-10 xl:px-8">
 
     <div v-if="doc">
+      <WikiBreadcrumbs :items="breadcrumbItems" class="mb-5 md:mb-6" />
+
       <div v-if="doc.layoutType === 'hub'" class="-mx-4 md:-mx-10 xl:-mx-[200px]">
         <TemplateHub :doc="doc" :authors="validAuthors" />
       </div>
       <div v-else>
- 
-      <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-gray-500 mb-5 md:mb-6 font-mono transition-colors min-w-0">
-        <NuxtLink to="/" class="hover:text-amber-600 dark:hover:text-amber-500 transition">真实宇宙</NuxtLink>
-        <Icon name="ph:caret-right-bold" class="text-slate-400 dark:text-gray-600" />
-
-        <template v-if="doc.navType === 'community'">
-          <span class="text-slate-600 dark:text-gray-400">社区项目</span>
-        </template>
-        <template v-else-if="doc.category">
-          <NuxtLink :to="`/category/${encodeURIComponent(doc.category)}`"
-            class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">
-            {{ doc.category }}
-          </NuxtLink>
-        </template>
-        <template v-else>
-          <span class="text-slate-600 dark:text-gray-400">未分类卷宗</span>
-        </template>
-
-        <Icon name="ph:caret-right-bold" class="text-slate-400 dark:text-gray-600" />
-        <span class="text-slate-800 dark:text-gray-200 font-bold">{{ doc.title }}</span>
-      </div>
 
       <article
         class="relative bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700/50 p-4 sm:p-6 md:p-10 rounded-lg shadow-sm transition-colors duration-300 min-w-0">
@@ -72,7 +53,7 @@
                   class="flex items-center gap-1.5 pr-3 pl-0.5 py-1 rounded-full border bg-slate-50 dark:bg-[#15151a] shadow-sm transition-colors"
                   :class="getAuthorTagClass(author.role)">
 
-                  <img :src="author.avatar" alt="avatar"
+                  <img :src="author.avatar" :alt="`${author.name} 的头像`"
                     class="w-6 h-6 rounded-full object-cover border border-slate-300 dark:border-black/50 transition-colors" />
 
                   <span class="font-bold tracking-wide flex items-center gap-1 text-[13px]">
@@ -114,7 +95,7 @@
 </template>
 
 <script setup>
-import { useRoute, useAsyncData, useSeoMeta } from '#imports'
+import { useRoute, useAsyncData, useRequestEvent, setResponseStatus } from '#imports'
 import { computed } from 'vue'
 import { teamMembers } from '~/utils/team'
 
@@ -131,6 +112,22 @@ const validAuthors = computed(() => {
   }).filter(Boolean)
 })
 
+const breadcrumbItems = computed(() => {
+  if (!doc.value) return [{ label: '首页', to: '/' }]
+
+  const parentItem = doc.value.navType === 'community'
+    ? { label: '社区项目' }
+    : doc.value.category
+      ? { label: doc.value.category, to: `/category/${encodeURIComponent(doc.value.category)}` }
+      : { label: '未分类卷宗' }
+
+  return [
+    { label: '首页', to: '/' },
+    parentItem,
+    { label: doc.value.title || '未命名卷宗' },
+  ]
+})
+
 const getAuthorTagClass = (role) => {
 
   if (role === 'creator') return 'border-amber-400 dark:border-amber-500/50 text-amber-600 dark:text-amber-400'
@@ -139,14 +136,30 @@ const getAuthorTagClass = (role) => {
 }
 
 if (doc.value) {
-  const parentName = doc.value.navType === 'community'
-    ? '社区项目'
-    : (doc.value.category || '未分类')
-
-  useSeoMeta({
-    title: `${doc.value.title} - ${parentName} - 诸神愚戏WIKI`,
-    description: doc.value.description || '诸神愚戏 WIKI 设定集收录内容'
+  usePageSeo({
+    title: doc.value.title || '未命名卷宗',
+    description: doc.value.description || `查看《诸神愚戏》中关于${doc.value.title || '该词条'}的完整资料与世界观设定。`,
+    path: route.path,
+    image: doc.value.image,
+    type: doc.value.navType === 'community' ? 'website' : 'article',
+    breadcrumbs: breadcrumbItems.value,
+    authors: validAuthors.value,
+    datePublished: doc.value.datePublished || doc.value.date,
+    dateModified: doc.value.dateModified,
+    noindex: doc.value.noindex,
   })
+} else {
+  usePageSeo({
+    title: '卷宗不存在',
+    description: '你访问的诸神愚戏 WIKI 卷宗不存在或已被移动。',
+    path: route.path,
+    noindex: true,
+  })
+
+  if (import.meta.server) {
+    const event = useRequestEvent()
+    if (event) setResponseStatus(event, 404, 'Page Not Found')
+  }
 }
 </script>
 

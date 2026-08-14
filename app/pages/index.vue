@@ -91,9 +91,10 @@ onMounted(() => {
     }
 })
 
-useSeoMeta({
-    title: '诸神愚戏 WIKI - 神谕与谎言的档案馆',
-    description: '全网最详尽的《诸神愚戏》世界观设定集。',
+usePageSeo({
+    title: '诸神愚戏 WIKI',
+    description: '诸神愚戏中文 WIKI，收录角色、信仰、势力、职业、道具、试炼与剧情事件资料。',
+    path: '/',
 })
 </script>
 

@@ -76,7 +76,7 @@
                     </div>
                 </div>
 
-                <NuxtLink to="/timeline"
+                <NuxtLink to="/storyline"
                     class="text-sm font-bold text-slate-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-white transition flex items-center gap-1">
                     <Icon name="ph:hourglass-high-duotone" class="text-lg" /> 编年史
                 </NuxtLink>
@@ -158,7 +158,7 @@
                     </div>
 
                     <div class="pt-2 mt-2 border-t border-slate-100 dark:border-gray-800/80">
-                        <NuxtLink to="/timeline"
+                        <NuxtLink to="/storyline"
                             class="text-sm font-bold text-slate-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition flex items-center gap-2 py-3 px-2 rounded-lg hover:bg-slate-50 dark:hover:bg-gray-800/50">
                             <Icon name="ph:hourglass-high-duotone" class="text-lg text-indigo-500" /> 编年史
                         </NuxtLink>

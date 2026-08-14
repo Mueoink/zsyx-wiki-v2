@@ -2,13 +2,7 @@
 <template>
     <div class="max-w-[1200px] mx-auto px-4 py-6 md:py-8 xl:px-8 min-h-[80vh]">
 
-        <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-gray-500 mb-8 font-mono">
-            <NuxtLink to="/" class="hover:text-amber-600 dark:hover:text-amber-500 transition flex items-center gap-1">
-                <Icon name="ph:planet-duotone" class="text-sm" /> 切片宇宙
-            </NuxtLink>
-            <Icon name="ph:caret-right-bold" />
-            <span class="text-amber-600 dark:text-amber-400 font-bold bg-amber-500/10 px-2 py-0.5 rounded">贡献与支持</span>
-        </div>
+        <WikiBreadcrumbs :items="breadcrumbItems" class="mb-8" />
 
 
         <header
@@ -58,7 +52,7 @@
                     <!-- 头像 -->
                     <div class="w-14 h-14 bg-slate-100 dark:bg-gray-900 shrink-0 rounded-full flex items-center justify-center overflow-hidden border-2 z-10 shadow-sm"
                         :class="getAvatarBorder(member.role)">
-                        <img :src="member.avatar" alt="avatar" class="w-full h-full object-cover" />
+                        <img :src="member.avatar" :alt="`${member.name} 的头像`" class="w-full h-full object-cover" />
                     </div>
 
                     <!-- 信息 -->
@@ -97,7 +91,7 @@
 
                     <div
                         class="w-14 h-14 bg-slate-100 dark:bg-gray-900 shrink-0 rounded-full flex items-center justify-center overflow-hidden border-2 border-purple-300 dark:border-purple-500/60 shadow-sm dark:shadow-[0_0_10px_rgba(168,85,247,0.2)]">
-                        <img :src="member.avatar" alt="avatar"
+                        <img :src="member.avatar" :alt="`${member.name} 的头像`"
                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                     </div>
 
@@ -119,7 +113,7 @@
 </template>
 
 <script setup>
-import { useAsyncData, useSeoMeta } from '#imports'
+import { useAsyncData } from '#imports'
 
 const { data: allDocs } = await useAsyncData('contributors-stats', () => {
     return queryCollection('content').all()
@@ -182,8 +176,15 @@ const getWatermarkColor = (index) => {
 }
 
 
-useSeoMeta({
-    title: '贡献与支持 - 诸神愚戏 WIKI',
-    description: '致敬所有为诸神愚戏WIKI扩张添砖加瓦的贡献者与社区支持者。'
+const breadcrumbItems = [
+    { label: '首页', to: '/' },
+    { label: '贡献与支持' },
+]
+
+usePageSeo({
+    title: '贡献与支持',
+    description: '认识参与诸神愚戏 WIKI 内容编写、资料整理与社区维护的贡献者。',
+    path: '/contributors',
+    breadcrumbs: breadcrumbItems,
 })
 </script>

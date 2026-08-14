@@ -38,7 +38,7 @@
                                 <div class="flex items-center gap-4">
                                     <div
                                         class="w-16 h-16 shrink-0 rounded-xl bg-slate-100 dark:bg-[#15151a] border border-slate-200 dark:border-gray-800 overflow-hidden relative group cursor-pointer">
-                                        <img :src="displayAvatarSrc" @error="onImageError"
+                                        <img :src="displayAvatarSrc" :alt="`${oc.name || '原创角色'}头像预览`" @error="onImageError"
                                             class="w-full h-full object-cover !m-0 block" />
                                         <label
                                             class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
@@ -189,7 +189,7 @@
                         <div class="flex items-end gap-3 sm:gap-5 mb-6 sm:mb-8 min-w-0">
                             <div
                                 class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-xl sm:rounded-2xl bg-white dark:bg-[#1a1a21] p-1 shadow-lg sm:shadow-xl shrink-0 border border-slate-200 dark:border-gray-700">
-                                <img :src="displayAvatarSrc" @error="onImageError"
+                                <img :src="displayAvatarSrc" :alt="`${oc.name || '原创角色'}头像`" @error="onImageError"
                                     class="w-full h-full object-cover rounded-xl !m-0 block" />
                             </div>
                             <div class="pb-1 min-w-0">

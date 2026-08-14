@@ -1,24 +1,11 @@
-# Welcome to Nuxt Content Starter
+---
+title: "诸神愚戏 WIKI"
+description: "收录《诸神愚戏》角色、信仰、势力、职业、道具与剧情事件的中文世界观百科。"
+hideInMenu: true
+---
 
-This is the main page displaying Markdown located at [content/index.md](https://github.com/nuxt/starter/blob/content/content/index.md).
+# 诸神愚戏 WIKI
 
-Move to [about](/about) page.
+这里是神谕与谎言的档案馆。你可以从角色、信仰、势力、职业、道具和剧情事件开始，探索《诸神愚戏》的世界观资料。
 
-## Manage your Contents
-
-Create new pages or modify the existing ones in `content/` directory.
-
-## Query & Render Pages
-
-You can find an example of querying contents and rendering them in a [catch-all page](https://github.com/nuxt/starter/blob/content/app/pages/%5B...slug%5D.vue)
-
-## Integrate Vue Component
-
-::alert{color="green"}
-The current [alert](https://github.com/nuxt/starter/blob/content/app/components/Alert.vue) and the [counter](https://github.com/nuxt/starter/blob/content/app/components/Counter.vue) below are `Vue` components integrated into the Markdown.
-::
-
-::counter
-::
-
-Checkout out the [documentation](https://content.nuxt.com/docs/getting-started) to learn more.
+站内内容由社区贡献者共同整理，并持续校对更新。

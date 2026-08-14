@@ -2,15 +2,7 @@
 <template>
     <div class="max-w-[1200px] mx-auto px-4 py-6 md:py-8 xl:px-8 min-h-[80vh]">
 
-        <div class="flex items-center gap-2 text-xs text-slate-500 dark:text-gray-500 mb-6 font-mono transition-colors">
-            <NuxtLink to="/" class="hover:text-slate-800 dark:hover:text-gray-300 transition flex items-center gap-1">
-                <Icon name="ph:planet-duotone" class="text-sm" /> 真实宇宙
-            </NuxtLink>
-            <Icon name="ph:caret-right-bold" />
-            <span
-                class="text-indigo-600 dark:text-indigo-400 font-bold bg-indigo-50 dark:bg-indigo-500/10 px-2 py-0.5 rounded transition-colors">{{
-                categoryName }}</span>
-        </div>
+        <WikiBreadcrumbs :items="breadcrumbItems" class="mb-6" />
 
         <header
             class="bg-white dark:bg-[#1a1a21] border border-slate-200 dark:border-gray-700 rounded-xl p-4 sm:p-6 md:p-8 mb-6 md:mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-6 shadow-sm relative overflow-hidden transition-colors duration-300">
@@ -103,7 +95,8 @@
 </template>
 
 <script setup>
-import { useRoute, useAsyncData, useSeoMeta } from '#imports'
+import { useRoute, useAsyncData, useRequestEvent, setResponseStatus } from '#imports'
+import { volumes } from '~/utils/volumes'
 
 const route = useRoute()
 const categoryName = decodeURIComponent(route.params.name)
@@ -114,8 +107,28 @@ const { data: entries } = await useAsyncData(`category-${categoryName}`, () => {
         .all()
 })
 
-useSeoMeta({
-    title: `${categoryName} - 诸神愚戏WIKI`,
-    description: `探索诸神愚戏WIKI中关于【${categoryName}】的全部收录卷宗。`
+const breadcrumbItems = [
+    { label: '首页', to: '/' },
+    { label: 'WIKI 分类' },
+    { label: categoryName },
+]
+
+const hasEntries = Boolean(entries.value?.length)
+const knownVolumeCategories = new Set(
+    volumes.map(volume => decodeURIComponent(volume.path.split('/').pop() || '')),
+)
+const isKnownCategory = hasEntries || knownVolumeCategories.has(categoryName)
+
+usePageSeo({
+    title: categoryName,
+    description: `浏览诸神愚戏 WIKI 中归属于“${categoryName}”的角色、设定与资料卷宗。`,
+    path: route.path,
+    breadcrumbs: breadcrumbItems,
+    noindex: !hasEntries,
 })
+
+if (!isKnownCategory && import.meta.server) {
+    const event = useRequestEvent()
+    if (event) setResponseStatus(event, 404, 'Category Not Found')
+}
 </script>

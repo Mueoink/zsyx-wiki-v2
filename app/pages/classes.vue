@@ -1,6 +1,8 @@
 <!-- app/pages/classes.vue -->
 <template>
     <div class="max-w-[1200px] mx-auto px-4 py-6 md:py-8 xl:px-8 min-h-[80vh]">
+        <WikiBreadcrumbs :items="breadcrumbItems" class="mb-6" />
+
         <div class="mb-8 md:mb-10 text-center relative flex flex-col items-center">
             <Icon name="ph:hexagon-duotone"
                 class="absolute left-1/2 -top-10 -translate-x-1/2 text-[150px] text-indigo-500/5 dark:text-indigo-500/10 pointer-events-none transition-colors" />
@@ -34,7 +36,7 @@
                         <div v-for="author in validAuthors" :key="author.name"
                             class="flex items-center gap-1.5 pr-3 pl-0.5 py-1 rounded-full border bg-slate-50 dark:bg-[#15151a] shadow-sm transition-all hover:-translate-y-0.5"
                             :class="getAuthorTagClass(author.role)">
-                            <img :src="author.avatar" alt="avatar"
+                            <img :src="author.avatar" :alt="`${author.name} 的头像`"
                                 class="w-6 h-6 rounded-full object-cover border border-slate-300 dark:border-black/50" />
                             <span class="font-bold tracking-wide flex items-center gap-1 text-[13px]">
                                 {{ author.name }}
@@ -121,7 +123,6 @@
 </template>
 
 <script setup>
-import { useSeoMeta } from '#imports'
 import { computed } from 'vue'
 
 const getThemeBg = (theme) => {
@@ -188,9 +189,16 @@ const getAuthorTagClass = (role) => {
     return 'border-blue-200 dark:border-blue-500/50 text-blue-600 dark:text-blue-400'
 }
 
-useSeoMeta({
-    title: '信仰职业表 - 诸神愚戏 WIKI',
-    description: '全景展示原文中基于信仰觉醒的六大职业与核心能力。'
+const breadcrumbItems = [
+    { label: '首页', to: '/' },
+    { label: '信仰职业表' },
+]
+
+usePageSeo({
+    title: '信仰职业表',
+    description: '查看《诸神愚戏》不同信仰分支对应的六大职业、职业名称与能力体系。',
+    path: '/classes',
+    breadcrumbs: breadcrumbItems,
 })
 
 const pageAuthors = ['槐安', 'Mars', '1', '粟尘', '翎洛']

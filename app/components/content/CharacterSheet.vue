@@ -11,7 +11,7 @@
             <div v-if="hasGallery" class="lg:w-1/3 flex flex-col gap-4 shrink-0">
                 <div
                     class="aspect-[3/4] bg-slate-100 dark:bg-black/30 rounded-lg overflow-hidden border border-slate-200 dark:border-gray-700 relative group">
-                    <img :src="currentImage.src"
+                    <img :src="currentImage.src" :alt="`${charData.name}角色立绘`"
                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div
                         class="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm text-white text-xs py-2 px-3 text-center">
@@ -22,7 +22,7 @@
                     <button v-for="(img, idx) in safeGallery" :key="idx" @click="currentIndex = idx"
                         class="w-12 h-12 shrink-0 rounded border-2 overflow-hidden transition-all"
                         :class="currentIndex === idx ? 'border-indigo-500 opacity-100' : 'border-transparent opacity-60 hover:opacity-100'">
-                        <img :src="img.src" class="w-full h-full object-cover" />
+                        <img :src="img.src" :alt="`${charData.name}角色立绘缩略图 ${idx + 1}`" loading="lazy" class="w-full h-full object-cover" />
                     </button>
                 </div>
             </div>

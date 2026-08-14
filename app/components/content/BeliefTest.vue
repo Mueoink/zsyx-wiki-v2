@@ -9,7 +9,7 @@
                 <div class="shrink-0 relative flex flex-col items-center">
                     <div
                         class="w-28 h-28 md:w-36 md:h-36 rounded-2xl bg-white dark:bg-[#1a1a21] p-1.5 shadow-xl shrink-0 border border-slate-200 dark:border-gray-700 relative z-10">
-                        <img :src="communityInfo.avatar" alt="Community"
+                        <img :src="communityInfo.avatar" alt="诸神愚戏 WIKI 官方社区头像"
                             class="w-full h-full object-cover rounded-xl !m-0 block relative z-10" />
                         <div
                             class="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 bg-indigo-50 dark:bg-indigo-900/80 text-indigo-700 dark:text-indigo-300 rounded-lg text-[10px] font-bold tracking-widest z-20 border border-indigo-200 dark:border-indigo-700 shadow-sm flex items-center gap-1.5">

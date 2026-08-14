@@ -119,10 +119,15 @@
 </template>
 
 <script setup>
-import { useSeoMeta } from '#imports'
+const breadcrumbItems = [
+    { label: '首页', to: '/' },
+    { label: '寰宇编年史' },
+]
 
-useSeoMeta({
-    title: '寰宇编年史 - 诸神愚戏 WIKI',
-    description: '按分卷索引，探索诸神愚戏的完整时间线与大事件。'
+usePageSeo({
+    title: '寰宇编年史',
+    description: '按故事分卷与时间顺序浏览《诸神愚戏》的重要试炼、剧情节点和世界事件。',
+    path: '/storyline',
+    breadcrumbs: breadcrumbItems,
 })
 </script>

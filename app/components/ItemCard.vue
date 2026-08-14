@@ -66,6 +66,7 @@
             </span>
             <div class="flex -space-x-1.5">
                 <img v-for="author in validAuthors" :key="author.name" :src="author.avatar" :title="author.name"
+                    :alt="`${author.name} 的头像`" loading="lazy"
                     class="w-6 h-6 rounded-full border border-white dark:border-gray-800 object-cover shadow-sm z-10 hover:z-20 hover:scale-110 transition-transform cursor-help" />
             </div>
         </div>

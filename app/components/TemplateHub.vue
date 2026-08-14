@@ -34,7 +34,7 @@
                         <div v-for="author in authors" :key="author.name"
                             class="flex items-center gap-1.5 pr-2 pl-0.5 py-0.5 rounded-full border bg-slate-50 dark:bg-[#15151a] shadow-sm transition-transform hover:-translate-y-0.5"
                             :class="getAuthorTagClass(author.role)">
-                            <img :src="author.avatar" alt="avatar"
+                            <img :src="author.avatar" :alt="`${author.name} 的头像`"
                                 class="w-5 h-5 rounded-full object-cover border border-slate-300 dark:border-black/50" />
                             <span class="font-bold tracking-wide text-xs">{{ author.name }}</span>
                         </div>

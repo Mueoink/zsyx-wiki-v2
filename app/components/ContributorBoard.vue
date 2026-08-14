@@ -30,7 +30,7 @@
 
                 <div class="w-10 h-10 bg-slate-200 dark:bg-gray-800 shrink-0 rounded-full shadow-inner flex items-center justify-center overflow-hidden border-2"
                     :class="getAvatarBorder(member.role)">
-                    <img :src="member.avatar" alt="avatar" class="w-full h-full object-cover" />
+                    <img :src="member.avatar" :alt="`${member.name} 的头像`" class="w-full h-full object-cover" />
                 </div>
 
                 <div class="z-10 flex-1 min-w-0">
