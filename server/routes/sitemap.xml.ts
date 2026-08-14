@@ -31,7 +31,7 @@ export default defineEventHandler(async (event) => {
   })
 
   categories.forEach((category) => {
-    entries.set(`/category/${encodeURIComponent(category)}`, undefined)
+    entries.set(`/category/${category}`, undefined)
   })
 
   const urls = [...entries.entries()]

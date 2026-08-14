@@ -16,7 +16,9 @@ export default defineNuxtConfig({
   nitro: {
     preset: "vercel",
     prerender: {
+      crawlLinks: true,
       failOnError: false,
+      routes: ["/robots.txt", "/sitemap.xml", "/timeline"],
     },
   },
 
@@ -33,7 +35,8 @@ export default defineNuxtConfig({
         statusCode: 301,
       },
     },
-    "/sitemap.xml": { isr: 3600 },
+    "/robots.txt": { prerender: true },
+    "/sitemap.xml": { prerender: true },
     "/__nuxt_content/**": {
       headers: { "X-Robots-Tag": "noindex, nofollow" },
     },

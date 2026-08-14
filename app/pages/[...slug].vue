@@ -118,7 +118,7 @@ const breadcrumbItems = computed(() => {
   const parentItem = doc.value.navType === 'community'
     ? { label: '社区项目' }
     : doc.value.category
-      ? { label: doc.value.category, to: `/category/${encodeURIComponent(doc.value.category)}` }
+      ? { label: doc.value.category, to: `/category/${doc.value.category}` }
       : { label: '未分类卷宗' }
 
   return [
